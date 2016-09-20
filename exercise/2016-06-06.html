@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			a{
+				text-decoration: none;
+			}
+			.box{
+				width: 760px;
+				height: 760px;
+				padding: 20px;
+				position: relative;
+			}
+			#bj{
+				width: 760px;
+				height: 760px;
+				position: absolute;
+				background: black;
+				opacity: 0.3;
+				z-index: 10;
+				margin-top: -50px;
+				display: none;
+			}
+			.text{
+				height: 50px;
+				line-height: 50px;
+			}
+			.text span{
+				float: left;
+				font-size: 26px;
+				font-weight: bold;
+			}
+			.text a{
+				line-height: 30px;
+				height: 30px;
+				float: left;
+				display: block;
+				padding: 10px;
+				background: red;
+				font-size: 16px;
+				color: #fff;
+			}
+			#box1{
+				float: left;
+				width: 100px;
+				height: 100px;
+				border: 3px solid #000;
+				background: white;
+				margin-top: 20px;
+			}
+			#box2{
+				width: 260px;
+				height: 180px;
+				background: #fff;
+				border: 20px solid gray;
+				position: absolute;
+				top: 150px;
+				right: 20px;
+				padding: 20px;
+				display: none;
+				z-index: 20;
+			}
+			#color,#width,#height{
+				height: 40px;
+				line-height: 40px;
+				margin-bottom: 5px;
+			}
+			#color span,#width span,#height span{
+				float: left;
+			}
+			#red,#yellow,#blue{
+				width: 35px;
+				height: 40px;
+				text-align: center;
+				display: block;
+				float: left;
+				background: greenyellow;
+				margin-right: 10px;
+				color: #FFFFFF;
+			}
+			#yellow{
+				background: sandybrown;
+			}
+			#blue{
+				background: cornflowerblue;
+			}
+			#w200,#w300,#w400,#h200,#h300,#h400{
+				text-align: center;
+				display: block;
+				float: left;
+				width: 35px;
+				height: 38px;
+				background: gainsboro;
+				margin-right: 10px;
+				color: grey;
+				border: 1px solid gray;
+			}
+			#hf,#qd{
+				float: left;
+				width: 50px;
+				height: 30px;
+				line-height: 30px;
+				text-align: center;
+				color: #fff;
+				background: darkblue;
+				margin-left: 80px;
+				margin-top: 10px;
+			}
+			#qd{
+				margin-left: 10px;
+			}
+			#width a:hover{
+				background-color: coral;
+			}
+			#height a:hover{
+				background-color: coral;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<div class="text">
+				<span>
+					请为下面的DIV设置样式：
+				</span>
+				<a href="#" id="djsz">
+					点击设置
+				</a>
+			</div>
+			<div id="box1"></div>
+			<div id="box2">
+				<div id="color">
+					<span>
+						请选择背景色：
+					</span>
+					<a href="#" id="red">
+						红
+					</a>
+					<a href="#" id="yellow">
+						黄
+					</a>
+					<a href="#" id="blue">
+						蓝
+					</a>
+				</div>
+				<div id="width">
+					<span>
+						请选择宽(px)：
+					</span>
+					<a href="#" id="w200">
+						200
+					</a>
+					<a href="#" id="w300">
+						300
+					</a>
+					<a href="#" id="w400">
+						400
+					</a>
+				</div>
+				<div id="height">
+					<span>
+						请选择高(px)：
+					</span>
+					<a href="#" id="h200">
+						200
+					</a>
+					<a href="#" id="h300">
+						300
+					</a>
+					<a href="#" id="h400">
+						400
+					</a>
+				</div>
+				<div id="hf">
+					恢复
+				</div>
+				<div id="qd">
+					确定
+				</div>
+			</div>
+			<div id="bj"></div>
+		</div>
+		<script type="text/javascript">
+			var djsz = document.getElementById('djsz');
+			var box2 = document.getElementById('box1');
+			var box2 = document.getElementById('box2');
+			var red = document.getElementById('red');
+			var yellow = document.getElementById('yellow');
+			var blue = document.getElementById('blue');
+			var w200 = document.getElementById('w200');
+			var w300 = document.getElementById('w300');
+			var w400 = document.getElementById('w400');
+			var h200 = document.getElementById('h200');
+			var h300 = document.getElementById('h300');
+			var h400 = document.getElementById('h400');
+			var hf = document.getElementById('hf');
+			var qd = document.getElementById('qd');
+			var bj = document.getElementById('bj');
+			djsz.onclick = function(){
+				box2.style.display = 'block';
+				bj.style.display = 'block'
+			}
+			red.onclick = function(){
+				red.style.backgroundColor = 'red';
+				box1.style.backgroundColor = 'red';
+			}
+			yellow.onclick = function(){
+				yellow.style.backgroundColor = 'yellow';
+				box1.style.backgroundColor = 'yellow';
+			}
+			blue.onclick = function(){
+				blue.style.backgroundColor = 'blue';
+				box1.style.backgroundColor = 'blue';
+			}
+			w200.onclick = function(){
+				box1.style.width = '200px';
+			}
+			w300.onclick = function(){
+				box1.style.width = '300px';
+			}
+			w400.onclick = function(){
+				box1.style.width = '400px';
+			}
+			h200.onclick = function(){
+				box1.style.height = '200px';
+			}
+			h300.onclick = function(){
+				box1.style.height = '300px';
+			}
+			h400.onclick = function(){
+				box1.style.height = '400px';
+			}
+			hf.onclick = function(){
+				box1.style.width = '100px';
+				box1.style.height ='100px';
+				box1.style.backgroundColor = '#fff'
+			}
+			qd.onclick = function(){
+				box2.style.display = 'none';
+				bj.style.display = 'none'
+			}
+		</script>
+	</body>
+</html>

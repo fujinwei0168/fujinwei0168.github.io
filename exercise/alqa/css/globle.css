@@ -1,0 +1,287 @@
+                                         /*吊顶     loginBar*/
+.loginBar{
+	width: 1190px;
+	height: 25px;
+	line-height: 25px;
+	margin: 0 auto;
+}
+.loginBar ul li{
+	float: left;
+}
+i{
+	background: url(../img/sprite.jpg) no-repeat;
+	overflow: hidden;
+}
+.bar_left .al{
+	padding-left: 17px;
+	margin-left: 5px;
+}
+.bar_left li,.bar_right li{
+	position: relative;
+}
+.bar_left li a,.bar_right li a{
+	color: #000;
+}
+.bar_left li i{
+	width: 13px;
+	height: 11px;
+	position: absolute;
+	top: 6px;
+	left: 0px;
+}
+.bar_left .HI{
+	margin-left: 20px;
+}
+.bar_left .HI span{
+	color: #c2c2c2;
+}
+.bar_right a{
+	float: left;
+}
+.bar_right li{
+	margin-left: 12px;
+	padding-right: 14px;
+}
+.bar_right li i{
+	width: 6px;
+	height: 3px;
+	position: absolute;
+	top: 11px;
+	right: 0;
+	background-position: -21px 0;
+}
+.bar_right .gray{
+	color: #eaebea;
+}
+.bar_right .service{
+	margin-left: 0;
+}
+.bar_right li .right_btn{
+	width: 12px;
+	height: 12px;
+	position: absolute;
+	top: 6px;
+	left: 0;
+	background-position: 0 -13px;
+}
+.wz_dh{
+	padding-left: 17px;
+}
+.banner{
+	height: 48px;
+	border-top: 1px solid #e5e5e5;
+}
+                                            /*广告*/
+.banner a{
+	height: 48px;
+	display: block;
+	background: url(../img/1.jpg) no-repeat center;
+}
+                                             /*头部*/
+header{
+	height: 104px;
+	margin-bottom: 15px;
+	border-bottom: 3px solid #3ea3ff;
+}
+.top_content{
+	width: 1190px;
+	height: 104px;
+	margin: 0 auto;
+}
+.content_left{
+	width: 995px;
+	height: 104px;
+}
+.left_top{
+	width: 995px;
+	height: 54px;
+}
+h1{
+	width: 205px;
+}
+.top_content .logo{
+	width: 205px;
+	height: 27px;
+	text-indent: -9999px;
+	margin-top: 27px;
+    display: block;
+	background: url(../img/sprite.jpg) no-repeat -95px -58px;
+}
+.content_right{
+	width: 176px;
+	height: 104px;
+}
+.top_content .ew_pic{
+	width: 176px;
+	height: 88px;
+	margin-top: 9px;
+}
+.box_gn{
+	margin-top: 14px;
+	position: relative;
+}
+.bk{
+	float: left;
+	width: 210px;
+	height: 31px;
+	line-height: 31px;
+	border: 1px solid #dce0e5;
+	color: #000;
+	text-align: center;
+}
+.box_gn .dh_pic{
+	width: 19px;
+	height: 19px;
+	position: absolute;
+	top: 7px;
+	left: 10px;
+	background: url(../img/sprite.jpg) no-repeat 0 -29px;
+}
+.box_gn .btn_pic{
+	width: 10px;
+	height: 6px;
+	position: absolute;
+	top: 12px;
+	right: 15px;
+	background: url(../img/sprite.jpg) no-repeat -34px 0;
+}
+.left_bottom{
+	margin-top: 26px;
+	word-spacing: 16px;
+}
+.left_bottom a{
+	font-size: 16px;
+	color: #23516e;
+}
+.left_bottom .blue{
+	color: #52adff;
+}
+                                           /*脚部*/
+footer{
+	width: 1190px;
+	height: 294px;
+	border-top: 3px solid #7ec2ff;
+	margin: 0 auto;
+}
+.fot_top{
+	width: 1190px;
+	height: 86px;
+	margin-top: 40px;
+}
+.lx_cp{
+	width: 172px;
+	height: 86px;
+	margin-left: 24px;
+}
+.l_x{
+	height: 24px;
+	line-height: 24px;
+	font-size: 16px;
+	font-weight: bold;
+}
+.l_x a{
+	color: #607a96;
+}
+.g_n{
+	height: 14px;
+	margin-top: 19px;
+	word-spacing: 8px;
+}
+.g_n a,.j_p a,.k_t a,.t_p a{
+	color: #b2c4cf;
+}
+.j_p{
+	height: 14px;
+	margin-top: 4px;
+	word-spacing: 8px;
+}
+.xs_sl{
+	width: 208px;
+	height: 86px;
+	border-left: 1px solid #ebebeb;
+	margin-left: 40px;
+}
+.x_s{
+	height: 24px;
+	line-height: 24px;
+	font-size: 16px;
+	color: #607a96;
+	font-weight: bold;
+	padding-left: 26px;
+}
+.x_s a{
+	color: #607a96;
+}
+.k_t{
+	height: 14px;
+	margin-top: 19px;
+	padding-left: 26px;
+	word-spacing: 7px;
+}
+.t_p{
+	height: 14px;
+	margin-top: 4px;
+	padding-left: 26px;
+	word-spacing: 8px;
+}
+.sj_fu{
+	width: 208px;
+	height: 86px;
+	border-left: 1px solid #ebebeb;
+	margin-left: 40px;
+}
+.fa_xi{
+	width: 291px;
+	height: 86px;
+	margin-left: 55px;
+	border-left: 1px solid #ebebeb;
+}
+.fa_xi a{
+	display: block;
+	padding-left: 29px;
+}
+.r_w{
+	width: 104px;
+	height: 86px;
+}
+.al_bb{
+	width: 1180px;
+	height: 26px;
+	line-height: 26px;
+	padding-left: 10px;
+	margin-top: 40px;
+	border-top: 1px solid #ebebeb;
+	border-bottom: 1px dashed #ebebeb;
+}
+.al_bb a{
+	color: #6c6c6c;
+}
+.al_bb span{
+	color: #6c6c6c;
+	margin-left: 3px;
+	margin-right: 3px;
+}
+.gy_ta{
+	width: 1180px;
+	height: 26px;
+	line-height: 26px;
+}
+.gy_ta a{
+	color: #6c6c6c;
+}
+.gy_ta span,.wl_wa{
+	color: #d2d2d2;
+}
+.zj_s{
+	width: 67px;
+	height: 28px;
+	position: relative;
+}
+.zj_s a i{
+	width: 67px;
+	height: 28px;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	background: url(../img/sprite.jpg) no-repeat -234px -272px;
+}

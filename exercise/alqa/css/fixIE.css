@@ -1,0 +1,120 @@
+										/*index 主页*/
+.box_gn{
+	*display: inline;
+}
+.search_content .box_center{
+	_margin-top: 8px;
+}
+.bj_tj i{
+	 _top: 8px;
+}
+.sh_top i{
+    _top: 6px;
+}
+.center_box ul li{
+	*display: inline;
+}
+.tc_pic ul li{
+	*display: inline;
+}
+.bg_black,.bg{
+	_filter:alpha(opacity=60)
+}
+.jp_content_bottom,.f6_bottom{
+	_width: 1190px;
+	_padding: 14px 10px 12px 5px;
+}
+.jp_content_bottom span,.f6_bottom span{
+	_padding: 0 3px 3px;
+}
+                                              /*jd-detail 酒店细节页面*/
+.ks_ty{
+	_margin-top: 20px;
+}
+.search_right_bottom{
+	_height: 66px;
+}
+.xiao_shi{
+	_margin-left: 40px;
+}
+.xiao_shi li{
+	_width: 125px;
+}
+.du_j{
+	_width: 125px;
+}
+.add_list{
+	_width: 400px;
+}
+.f5_top_right ul li{
+	_width: 210px
+}
+.f5_top_right ul .dt_xl{
+	_width: 250px
+}
+.f5_top_right ul .jc_x{
+	_padding-right: 30px;
+}
+.f5_top_right ul .li_q{
+	_padding-right: 35px;
+}
+.f5_top_right ul .j_d{
+	_width: 270px
+}
+.f5_top_right ul .cz_jc{
+	_width: 260px
+}
+.f5_top_right ul .bj_dy{
+	_padding-right: 40px;
+}
+.f5_bottom_right .bj_dy{
+	_padding-right: 40px;
+}
+                                              /*jp-search 机票搜索页面*/
+.sou_suo{
+	_margin-right: 3px;
+}
+.pic_btn a i{
+	_top: 65px;
+}
+.search_bottom_sj{
+	_margin-top: 8px;
+}
+.f1_bottom ul li time{
+	_padding-left: 100px;
+}
+.f1_bottom .he_ht{
+	_padding-left: 75px;
+}
+.z_kou1{
+	_padding-left: 8px;
+}
+.q_x{
+	_margin-left: 3px;
+}
+.tj_gm{
+	_margin-left: 5px;
+}
+.h_k_text span{
+	_margin-top: 14px;
+}
+.n_f{
+	_height: 460px;
+}
+.gz_list_bottom{
+	_margin-left: 9px;
+}
+.gz_list{
+	_padding: 0 20px 0 10px;
+}
+.floor7{
+	_width: 990px;
+	_padding: 10px 5px 10px 0px;
+	_line-height: 14px;
+}
+.fa_xi{
+	_margin-left: 10px;
+}
+.al_bb{
+	_padding-left: 5px;
+}

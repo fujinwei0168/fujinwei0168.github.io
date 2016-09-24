@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="tween.js"></script>
+		<script type="text/javascript" src="mTween.js"></script>
+		<style type="text/css">
+			body{
+				margin: 0;
+			}
+			ul{
+				margin: 0;
+				padding: 0;
+			}
+			li{
+				width: 50px;
+				height: 70px;
+				position: relative;
+				list-style: none;
+				float: left;
+			}
+			div{
+				width: 50px;
+				height: 70px;
+				position: absolute;
+				top: 0;
+			}
+			img{
+				width: 100%;
+				height: 100%;
+				vertical-align: top;
+			}
+		</style>
+	</head>
+	<body>
+		<ul>
+			<li>
+				<div>
+					<img src="img/0.jpg" alt="" />
+				</div>
+			</li>
+			<li>
+				<div>
+					<img src="img/0.jpg" alt="" />
+				</div>
+			</li>
+			<li>
+				<img src="img/c.jpg" alt="" />
+			</li>
+			<li>
+				<div>
+					<img src="img/0.jpg" alt="" />
+				</div>
+			</li>
+			<li>
+				<div>
+					<img src="img/0.jpg" alt="" />
+				</div>
+			</li>
+			<li>
+				<img src="img/c.jpg" alt="" />
+			</li>
+			<li>
+				<div>
+					<img src="img/0.jpg" alt="" />
+				</div>
+			</li>
+			<li>
+				<div>
+					<img src="img/0.jpg" alt="" />
+				</div>
+			</li>
+		</ul>
+		<script type="text/javascript">
+			var divs = document.querySelectorAll('div');
+			var imgs2 = document.querySelectorAll('li>img');
+			//获取时间默认初始化;
+			var date = new Date();
+			var h = date.getHours();
+			var m = date.getMinutes();
+			var s = date.getSeconds();
+			//把时间用字符串的形式串联起来;
+			var time = toTwo(h)+toTwo(m)+toTwo(s);
+			//声明一个变量time2 = time为了一会可以做判断;
+			var time2 = time;
+			//根据实际切换图片(默认初始化);
+			for(var i=0;i<time.length;i++){
+				divs[i].getElementsByTagName('img')[0].src = 'img/'+time[i]+'.jpg';
+			}
+			//循环定时器;
+			setInterval(function(){
+				//获取当前的时间;
+				 date = new Date();
+				 h = date.getHours();
+				 m = date.getMinutes();
+				 s = date.getSeconds();
+				//把时间用字符串的形式串联起来;
+				time = toTwo(h)+toTwo(m)+toTwo(s);
+				//给fn()中传入i值;使divs和time都可以对应到自己当前的位置;
+				for (var i=0;i<divs.length;i++){
+					//判断当前的时间不等于初始值的时间,如果不等于就调用函数fn();
+					if(time[i]!= time2[i]){
+						fn(i);
+					}
+				}
+//				把每一次新的时间在赋予给time2上进行下次判断;
+				time2 = time
+				//点闪烁的实现;
+				for (var i=0;i<imgs2.length;i++) {
+					imgs2[i].src = 'img/c.jpg'
+				};
+				//延时半秒闪烁;
+				setTimeout(function(){
+					for (var i=0;i<imgs2.length;i++) {
+						imgs2[i].src = 'img/b.jpg';
+					};
+				},500);
+			},1000);
+			//补0
+			function toTwo(n){
+				return n<10? '0'+n:''+n;
+			}
+			//实现数字滚动;
+			function fn(v){
+				//调用mTween使divs每一个的宽度发生改变,使divs从0到50;
+				mTween(divs[v],'width',0,300,'linear',function(){
+					//在运动结束的时候修改上边的图片,使图片可以和time里的时间对应;
+					divs[v].getElementsByTagName('img')[0].src = 'img/'+time[v]+'.jpg';
+					mTween(divs[v],'width',50,300,'linear')
+				})
+				   //调用mTween使divs每一个的中间位置发生改变;
+					mTween(divs[v],'left',25,300,'linear',function(){
+						mTween(divs[v],'left',0,300,'linear')
+				})
+			}
+		</script>
+	</body>
+</html>

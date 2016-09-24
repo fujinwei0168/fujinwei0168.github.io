@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box{
+				width: 600px;
+				height: 30px;
+				line-height: 30px;
+				background-color: greenyellow;
+				border-top: 1px solid green;
+			}
+			#box span{
+				font-size: 24px;
+				color: white;
+				font-weight: bold;
+				margin-left: 30px;
+			}
+			ul{
+				width: 600px;
+				margin: 0;
+				padding: 0;
+			}
+			ul li{
+				list-style: none;
+				width: 100%;
+				height: 40px;
+				line-height: 40px;
+				border-bottom: 1px solid lightskyblue;
+			}
+			.list{
+				height: 40px;
+			}
+			.list span,.list a{
+				float: left;
+			}
+			.list span{
+				margin-left: 30px;
+			}
+			.list a{
+				margin-left: 10px;
+			}
+			.list a img{
+				width: 20px;
+				height: 20px;
+				vertical-align: middle;
+			}
+			.list1{
+				height: 40px;
+				line-height: 40px;
+				display: none;
+			}
+			.text{
+				height: 20px;
+				margin-left: 30px;
+				border: 1px solid sandybrown;
+				border-radius: 3px;
+			}
+			li a{
+				text-decoration: none;
+				margin-right: 10px;
+				color: green;
+				font-size: 18px;
+			}
+			.show{
+				display: block;
+			}
+			.show1{
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<span>
+				分类名称
+			</span>
+		</div>
+		<ul>
+			<!--<li>
+				<div class="list">
+					<span>
+						秒味远程课堂
+					</span>
+					<a href="#">
+						<img src="../images/pen.png"/>
+					</a>
+				</div>
+				<div class="list1">
+					<input type="text" class="text" value="秒味远程课堂"/>
+					<a href="#">保存</a>
+					<a href="#">取消</a>
+				</div>
+			</li>-->
+		</ul>
+		<script type="text/javascript">
+			var uls = document.getElementsByTagName('ul')[0];
+			var str = '';
+			var len = 5;
+			//自动生成li;
+			for (var i=0;i<len;i++) {
+				str += '<li><div class="list"><span>秒味远程课堂</span>'+
+				'<a href="javascript:;"><img src="../images/pen.png"/></a></div>'+
+				'<div class="list1"><input type="text" class="text" value=""/>'+
+				'<a href="javascript:;">保存</a><a href="javascript:;">取消</a></div></li>'
+			};
+			uls.innerHTML = str;
+			var lis = document.getElementsByTagName('li');
+			//单独要修改第二个Li中span的内容，要先获取lis[1]中的span在进行修改;
+			var span = lis[1].getElementsByTagName('span')[0];
+			span.innerHTML = '秒味实体课堂';
+			//函数中只写一个样式的内容剩下的用传参来解决;
+			function fn(lis){
+				//声明一个变量找到div通过querySelectorALL的方式来找到div，使用方法和css的使用方法一样;
+				var divs = lis.querySelectorAll('li div');
+				var as = lis.querySelectorAll('li div a');
+				var texts = lis.querySelectorAll('li div input');
+				var spans = lis.querySelectorAll('li div span');
+				//当点击div(list)下的as[0]时list消失,div(list1)出现;
+				as[0].onclick = function(){
+					divs[0].className = 'show1';
+					divs[1].className = 'show';
+					//input里value的内容等于span中的内容;
+					texts[0].value = spans[0].innerHTML;
+				}
+				//当点击确认时div(list1)消失,div(list)出现,同时texts.value中输入的内容被保存下来;
+				as[1].onclick = function(){
+					divs[0].className = 'list';
+					divs[1].className = 'show1';
+					//span里的内容等于input内value输入的内容;
+					spans[0].innerHTML = texts[0].value;
+				};
+				//当点击取消时还原初始状态;
+				as[2].onclick = function(){
+					divs[0].className = 'list';
+					divs[1].className = 'show1';
+				};
+			};
+			//利用循环使每一个li都可以赋予到js的样式;
+			for (var i=0;i<lis.length;i++) {
+				fn(lis[i])
+			};
+		</script>
+	</body>
+</html>

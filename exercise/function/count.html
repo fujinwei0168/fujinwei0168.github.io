@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			li{
+				list-style: none;
+				margin-top: 30px;
+			}
+		</style>
+	</head>
+	<body>
+		<ul id="list">
+			<li>
+				<input type="button" value="-"/>
+				<strong>0</strong>
+				<input type="button" value="+"/>
+				单价：<em>14.5元</em>
+				小计：<span>0元</span>
+			</li>
+			<li>
+				<input type="button" value="-"/>
+				<strong>0</strong>
+				<input type="button" value="+"/>
+				单价：<em>10元</em>
+				小计：<span>0元</span>
+			</li>
+			<li>
+				<input type="button" value="-"/>
+				<strong>0</strong>
+				<input type="button" value="+"/>
+				单价：<em>7.5元</em>
+				小计：<span>0元</span>
+			</li>
+		</ul>
+		<script type="text/javascript">
+			window.onload = function(){
+				var ul = document.getElementById('list');
+				var lis = ul.getElementsByTagName('li');
+				
+				function fn1(lis){
+					var abtn = lis.getElementsByTagName('input');
+					var astrong = lis.getElementsByTagName('strong')[0];
+					var aem = lis.getElementsByTagName('em')[0];
+					var aspan = lis.getElementsByTagName('span')[0];
+					var n1 = parseFloat(astrong.innerHTML);
+					var n2 = parseFloat(aem.innerHTML);
+					
+					abtn[1].onclick = function(){
+						n1++;
+						astrong.innerHTML = n1;
+						aspan.innerHTML = n1*n2+'元';
+					};
+					abtn[0].onclick = function(){
+						n1--;
+						if(n1 < 0){
+							n1 = 0;
+						};
+						astrong.innerHTML = n1;
+						aspan.innerHTML = n1*n2+'元';
+					};
+				};
+//				fn1(lis[0]);
+//				fn1(lis[1]);
+				for (var i=0;i<lis.length;i++) {
+					fn1(lis[i]);
+				}
+			};
+		</script>
+	</body>
+</html>

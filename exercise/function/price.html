@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			li{
+				list-style: none;
+			}
+			#hj{
+				margin-top: 30px;
+			}
+		</style>
+	</head>
+	<body>
+		<ul id="list">
+			<li>
+				<input type="button" value="-" />
+				<strong>0</strong>
+				<input type="button" value="+" />
+				单价:<em>12.5元</em>
+				小计:<span>0元</span>
+			</li>
+			<li>
+				<input type="button" value="-" />
+				<strong>0</strong>
+				<input type="button" value="+" />
+				单价:<em>10.5元</em>
+				小计:<span>0元</span>
+			</li>
+			<li>
+				<input type="button" value="-" />
+				<strong>0</strong>
+				<input type="button" value="+" />
+				单价:<em>8.5元</em>
+				小计:<span>0元</span>
+			</li>
+			<li>
+				<input type="button" value="-" />
+				<strong>0</strong>
+				<input type="button" value="+" />
+				单价:<em>8元</em>
+				小计:<span>0元</span>
+			</li>
+			<li>
+				<input type="button" value="-" />
+				<strong>0</strong>
+				<input type="button" value="+" />
+				单价:<em>14.5元</em>
+				小计:<span>0元</span>
+			</li>
+		</ul>
+			<div id="hj">
+				商品合计共:<span>0件</span> ,共花费了:<span>0元</span>
+				其中最贵的商品单价是:<span>0元</span>
+			</div>
+		
+			<script type="text/javascript">
+				var lis = document.getElementsByTagName('li');
+				var uls =document.getElementById('list');
+				//声明变量在ul下找到的内容;
+				var ulst = uls.getElementsByTagName('strong');
+				var ulspan = uls.getElementsByTagName('span');
+				var ulems = uls.getElementsByTagName('em');
+				//传参;
+				function fn(lis){
+					var btns = lis.getElementsByTagName('input');
+					var astrong = lis.getElementsByTagName('strong')[0];
+					var ems = lis.getElementsByTagName('em')[0];
+					var spans = lis.getElementsByTagName('span')[0];
+					//n1等于strong里的内容;
+					var n1 = parseFloat(astrong.innerHTML);
+					//n2等于(单价)em里的内容;
+					var n2 = parseFloat(ems.innerHTML);
+					//hj变量是包合计里面内容的div;
+					var hj = document.getElementById('hj');
+					//获取到div下的span;
+					var aspan = hj.getElementsByTagName('span');
+					//把同样的东西保存在函数same中;
+					function same(){
+						astrong.innerHTML = n1;
+						//小计(span)里的内容等于strong里的内容*单价(em)里的内容;
+						spans.innerHTML = n1*n2+'元';
+						//声明变量b,c,num等于0;
+						var b = 0;
+						var c = 0;
+						var num = 0+'元';
+						//商品合计的循环;
+						for (var j=0;j<ulst.length;j++) {
+							//b等于hj下的所有strong里的内容+b;
+							b += Number(ulst[j].innerHTML);
+							//c等于hj下的所有span里的内容+c;
+							c += parseFloat(ulspan[j].innerHTML);
+							//n等于hj下的所有em里的内容;
+							n = ulems[j].innerHTML;
+							//判断所有ul下的strong里的内容是否大于0;
+							if(parseFloat(ulst[j].innerHTML) > 0){
+								//判断num的值是否小于n，如果是就把n的值赋给num;
+								if(parseFloat(num) < parseFloat(n)){
+									num = n;
+								};
+							};
+						};
+						//hj下第一个span的内容等于b(所有sartong的值相加的和);
+						aspan[0].innerHTML = b+'件';
+						//hj下第二个span的内容等于c(所有span的值相加的和);
+						aspan[1].innerHTML = c+'元';
+						//hj下第三个span的内容等于num(最贵的单价);
+						aspan[2].innerHTML = num;
+					}
+					//点击加号的时候;
+					btns[1].onclick = function(){
+						n1++;
+						same();
+					};
+					//点击减号的时候;
+					btns[0].onclick = function(){
+						n1--;
+						if(n1 < 0){
+							n1 = 0;
+						};
+						same();
+					};
+				}
+				//传参循环调用;
+				for (var i=0;i<lis.length;i++) {
+					fn(lis[i]);
+				};
+			</script>
+		</ul>
+	</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+li{
+	list-style: none;
+	cursor: pointer;	
+}
+ul{
+	margin: 0;
+	padding: 0;
+}
+#box{
+	border: 5px solid #E7E7E7;
+	height:400px;
+	width: 800px;
+	overflow: hidden;
+	margin: 0 auto;
+}
+#box>ul{
+	width:100px;
+	height: 100%;
+	float: left;
+}
+#box>ul li{
+	line-height: 99px;
+	text-align: center;
+	background-color: #000;
+	border-bottom: 1px solid #E7E7E7;
+	color:white;
+}
+#box>ul .active{
+	background-color: red;
+	color:black;
+}
+#box div{
+	float: left;
+	width: 700px;
+	height: 100%;
+	position: relative;
+	display: none;
+}
+#box img{
+	width: 100%;
+	height: 100%;
+}
+#box div ul{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}
+#box div li{
+	float: left;
+	border-right: 1px solid white;
+	background-color: black;
+	opacity: .7;
+	line-height: 30px;
+	margin-right: -1px;
+	color:white;
+	text-align: center;
+}
+#box div .active{
+	background-color: #EF3163;
+}
+	</style>
+	</head>
+	<body>
+		<div id="box">
+			
+		</div>
+		<script type="text/javascript">
+			var arr=[
+						[ "暖色调", ["暖色键盘","惬意时光","午后","一杯苦咖啡"],["images/img1.gif","images/img2.gif","images/img3.gif","images/img4.gif"]],
+					
+						["金色夕阳",["街边夕阳","金色稻草"],["images/img5.gif","images/img6.gif"]],
+					
+						["灰色格调",["灰色通讯","咖啡'配'饼干","孤单键盘","枯树"],["images/img7.gif","images/img8.gif","images/img9.gif","images/img10.gif"]],
+					
+						["baby",["baby素材一","baby素材二"],["images/img11.gif","images/img12.gif"]]
+					];
+				var abox = document.getElementById('box');
+				var str = '<ul>';
+				var str1 = '';
+				for (var i=0;i<arr.length;i++) {
+					str += '<li>'+arr[i][0]+'</li>';
+					str1 += '<div><img src="'+arr[i][2][0]+'"><ul>';
+					
+					for (var j=0;j<arr[i][1].length;j++) {
+						str1 += '<li style="width:'+(700/arr[i][1].length)+'px">'+arr[i][1][j]+'</li>';
+					}
+					str1 += '</ul></div>'
+				}
+				str += '</ul>'+ str1;
+				abox.innerHTML = str;
+				//找到box下的第一个ul里面的所有li;
+				var ali = abox.getElementsByTagName('ul')[0].getElementsByTagName('li');
+				//找到box下的所有div;
+				var adiv = abox.getElementsByTagName('div');
+				//从第一个div下找到第一个img；
+				var imgs = adiv[0].getElementsByTagName('img')[0];
+				//从第一个div下找到第一个ul里面所有的li;
+				var lis = adiv[0].getElementsByTagName('ul')[0].getElementsByTagName('li');
+				//给左面的第一个li添加默认样式;
+				ali[0].className = 'active';
+				//把第一个div显示出来;
+				adiv[0].style.display = 'block';
+				//给右面div下ul下的第一个li添加默认样式;
+//				lis[0].className = 'active';
+				//点击左面所有的li;
+				for (var i=0;i<arr.length;i++) {
+					//给ali声明一个自定义属性index;
+					ali[i].index = i;
+					ali[i].onclick = function(){
+						for (var i=0;i<arr.length;i++) {
+							ali[i].className = '';
+							adiv[i].style.display = '';
+						}
+						this.className = 'active';
+						//adiv下的每一个display显示出来;
+						adiv[this.index].style.display = 'block';
+					};
+				}
+				//点击右面所有的li;
+				function fn(adiv,pic){
+					//在函数中从新获取div下的li和img;
+					var blis = adiv.getElementsByTagName('li');
+					var imgs = adiv.getElementsByTagName('img')[0];
+					//循环每一次blis的点击事件;
+					for (var i=0;i<blis.length;i++) {
+						blis[i].index1 = i;
+						blis[0].className = 'active';
+						//点击div下ul里的li;
+						blis[i].onclick = function(){
+							for (var i=0;i<blis.length;i++) {
+								blis[i].className = '';
+							}
+							this.className = 'active';
+							//img对应的是数组里要找到图片的数组位置,pic代表i值这样每个li里的img就可以通过循环找到自己的图片了;
+							imgs.src = arr[pic][2][this.index1];
+						};
+					}
+				}
+				//使传参的内容可以循环;
+				for (var i=0;i<arr.length;i++) {
+					fn(adiv[i],i);
+				}
+		</script>
+	</body>
+</html>

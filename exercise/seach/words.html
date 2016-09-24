@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			p,ul{
+				margin: 0;
+				padding: 0;
+			}
+			a{
+				text-decoration: none;
+			}
+			li{
+				list-style: none;
+			}
+			div{
+				float:left;
+			}
+			#left,#right{
+				width: 300px;
+				height: 150px;
+				padding: 20px;
+				border: 5px solid #940032;
+				border-radius: 15px;
+				position: relative;
+			}
+			#right{
+				border-color: #4169E1;
+			}
+			#left span,#right span{
+				width: 80px;
+				height: 40px;
+				border-radius: 5px;
+				background-color: #4169E1;
+				position: absolute;
+				bottom: 5px;
+				left: 50%;
+				margin-left: -40px; 
+				line-height: 40px;
+				text-align: center;
+				color: white;
+			}
+			#right span{
+				background-color: #940032;
+			}
+			#center{
+				width: 70px;
+				height: 100px;
+				padding: 30px;
+				position: relative;
+			}
+			#center a{
+				width: 70px;
+				height: 20px;
+				background-color: #EF3163;
+				line-height: 20px;
+				text-align: center;
+				display: block;
+				margin-top: 15px;
+				border-radius: 5px;
+				color: white;
+			}
+			#center ul{
+				position: absolute;
+				bottom: 0px;
+			}
+			#center li{
+				width: 10px;
+				height: 10px;
+				background-color: #808080;
+				float: left;
+				margin: 0 3px;
+				border-radius: 50%;
+			}
+			#active{
+				background: yellow;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="left">
+			<p></p>
+			<span></span>
+		</div>
+		<div id="center">
+			<a href="javascript:;" id="toLeft">→</a>
+			<a href="javascript:;" id="toRight">←</a>
+			<ul>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</div>
+		<div id="right">
+			<p></p>
+			<span></span>
+		</div>
+		<script type="text/javascript">
+//			function getId(id){
+//				return document.getElementById(id);
+//			}
+//			var center = getId('center');
+            var p1 = document.querySelectorAll('#left p')[0];
+            var span1 = document.querySelectorAll('#left span')[0];
+            var p2 = document.querySelectorAll('#right p')[0];
+            var span2 = document.querySelectorAll('#right span')[0];
+			var left = document.querySelectorAll('#center #toLeft')[0];
+			var right = document.querySelectorAll('#center #toRight')[0];
+			var lis = document.querySelectorAll('#center ul li');
+			var num = 1;
+			var str = '拍碎双玉斗，慷慨一何多。满腔都是血泪，无处着悲歌。三百年来王气，满目山河依旧，人事竟如何？百户尚牛酒，四塞已干戈。千金剑，万言策，两蹉跎。醉中呵壁自语，醒后一滂沱。不恨年华去也，只恐少年心事，强半为销磨。愿替众生病，稽首礼维摩。';
+			var Text = str;
+			var timer = null;
+			var onOff = false;
+			//设置初始化;
+			p1.innerHTML = str;
+			//给左面添加点击事件;
+			left.onclick = function(){
+				//判断让我p1的内容不等于空的时候执行以下代码;
+				if(p1.innerHTML != ''){
+					//设置开关当每次代码运行完毕之后在执行下次点击;
+						if(onOff){
+						return
+					}
+					onOff = true;
+					//添加定时器;
+					timer = setInterval(function(){
+						/*给p2里(赋予并且添加内容),str为内容字符串利用截取的方法,
+						开始点是0结束点是1由于在定时器中所以显得文字一直在添加直到最后一个结束位置;*/
+						p2.innerHTML += str.slice(0,1);
+						/*给p1里(赋予内容),str为内容字符串利用截取的方法,如果写了开始位置没有写结束位置，
+						就从开始位置一直截取到字符串最后的位置(这样会显得文字在一个个的减少);*/
+						p1.innerHTML = str.slice(1);
+						//span1里的内容等于字符串的长度减一(因为0也占了一个位置)+'/'+字符串原有的长度(数字的数量);
+						span1.innerHTML = str.length-1+'/'+Text.length;
+						//重新把字符串减完的数量在赋予给str;
+						str = str.slice(1)
+						//清空所有li的背景颜色;
+						for (var i=0;i<lis.length;i++) {
+							lis[i].style.background = '';
+						}
+						//给每一li添加新的颜色;
+						lis[num%lis.length].style.background = 'yellow';
+						/*判断p1的内容为空时停止定时器,开关变成false可以再次进行点击,
+						把字符串原本的内容在赋予给str因为当p1为空时str里的内容也是空的;*/
+						if(p1.innerHTML == ''){
+							onOff = false;
+							clearInterval(timer)
+							str = Text;
+						}
+						num++;
+					},30);
+				}
+				//如果为空就不在继续并返回alert
+				else{
+					alert('该吃饭啦搬不动啦')
+				}
+			};
+			//给右边添加点击事件;
+			right.onclick = function(){
+				//判断p1的内容不等于空的时候执行以下代码;(下面的注释和上面一样)
+				if(p2.innerHTML != ''){
+					if(onOff){
+					return
+					}
+					onOff = true;
+					timer = setInterval(function(){
+						p1.innerHTML += str.slice(0,1);
+						p2.innerHTML = str.slice(1);
+						span2.innerHTML = str.length-1+'/'+Text.length;
+						str = str.slice(1)
+						for (var i=0;i<lis.length;i++) {
+								lis[i].style.background = '';
+							}
+							lis[num%lis.length].style.background = 'yellow';
+						if(p2.innerHTML == ''){
+							onOff = false;
+							clearInterval(timer)
+							str = Text;
+						}
+						num++;
+					},30);
+				}
+				//如果为空就不在继续并返回alert
+				else{
+					alert('该吃饭啦搬不动啦')
+				}
+			}
+		</script>
+	</body>
+</html>

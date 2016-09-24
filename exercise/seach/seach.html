@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body{
+				margin: 0;
+			}
+			a{
+				text-decoration: none;
+			}
+			li{
+				list-style: none;
+			}
+			#box{
+				width: 500px;
+				height: 500px;
+				background: orangered;
+				position: relative;
+			}
+			#text{
+				width: 400px;
+				position: absolute;
+				top: 30px;
+				left: 30px;
+				background: white;
+			}
+			#open{
+				position: absolute;
+				top: 30px;
+				right: 10px;
+			}
+			#open a{
+				display: block;
+				width: 50px;
+				height: 30px;
+				line-height: 30px;
+				text-align: center;
+				color: white;
+				background: darkblue;
+			}
+			#open ul{
+				margin: 0;
+				padding: 0;
+				width: 50px;
+				height: 60px;
+				background: skyblue;
+				display: none;
+			}
+			#open ul li{
+				width: 100%;
+				height: 30px;
+				line-height: 30px;
+				text-align: center;
+				cursor: pointer;
+			}
+			#open ul li:hover{
+				background: gainsboro;
+			}
+			#search{
+				width: 390px;
+				height: 100px;
+				position: absolute;
+				bottom: 30px;
+				left: 30px;
+				border: 5px solid darkblue;
+				border-radius: 10px;
+				background: white;
+				display: none;
+			}
+			#btn{
+				width: 350px;
+				height: 40px;
+				margin: 0 auto;
+				border-bottom: 2px solid orangered;
+			}
+			#btn a{
+				float: left;
+				display: block;
+				width: 70px;
+				height: 30px;
+				line-height: 30px;
+				text-align: center;
+				color: black;
+				margin-top: 10px;
+				margin-right: 10px;
+			}
+			#btn .active{
+				background: orangered;
+				color: white;
+			}
+			#se1{
+				display: none;
+				height: 40px;
+				line-height: 40px;
+				padding: 10px 20px;
+			}
+			#se1 input{
+				width: 150px;
+				height: 25px;
+			}
+			#se1 input[type="button"],#se2 input[type="button"]{
+				width: 50px;
+				height: 30px;
+			}
+			#se2{
+				display: none;
+				height: 40px;
+				line-height: 40px;
+				padding: 10px 20px;
+			}
+			#se2 input{
+				width: 130px;
+				height: 25px;
+			}
+			#open .active{
+				display: block;
+			}
+			#text span{
+				background: orangered;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<div id="text">
+				 目前主要针对的是javascript培训，同时还提供了css教程、javascript视频、js特效等，最新推出了外地学员们喜欢的javascript网络课程服务，同时还为处于javascript入门阶段的朋友录制了大量javascript视频，其中涉及了大量javascript基础知识，希望妙味课堂推出的javascript网络培训课程能带给大家更多惊喜。目前主要针对的是javascript培训，同时还提供了css教程、javascript视频、js特效等，最新推出了外地学员们喜欢的javascript网络课程服务，同时还为处于javascript入门阶段的朋友录制了大量javascript视频，其中涉及了大量javascript基础知识，希望妙味课堂推出的javascript网络培训课程能带给大家更多惊喜。目前主要针对的是javascript培训，
+			</div>
+			<div id="open">
+				<a href="javascript:;">
+					展开
+				</a>
+				<ul>
+					<li>查找</li>
+					<li>替换</li>
+				</ul>
+			</div>
+			<div id="search">
+				<div id="btn">
+					<a href="javastript:;" class="active">查找</a>
+					<a href="javastript:;">替换</a>
+				</div>
+				<div id="se1">
+					<input type="text" id="" value="" />
+					<input type="button" id="" value="查找" />
+				</div>
+				<div id="se2">
+					<input type="text" id="" value="" />
+					<input type="text" id="" value="" />
+					<input type="button" id="" value="替换" />
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript">
+			var text = document.querySelectorAll('#text')[0];
+			var as = document.querySelectorAll('#open a')[0];
+			var aul = document.querySelectorAll('#open ul')[0];
+			var lis = document.querySelectorAll('#open ul li');
+			var sbox = document.querySelectorAll('#search')[0];
+			var se1 = document.querySelectorAll('#search #se1')[0];
+			var se2 = document.querySelectorAll('#search #se2')[0];
+			var cz = document.querySelectorAll('#se1 input');
+			var change = document.querySelectorAll('#se2 input');
+			var abtn = document.querySelectorAll('#btn a');
+			var str = text.innerHTML;
+			//点击展开的时候;
+			as.onclick = function(){
+				if(aul.className != 'active'){
+					aul.className = 'active';
+				}
+				else{
+					aul.className = '';
+				}
+			};
+			//点击open中的查找时;
+			lis[0].onclick = function(){
+				aul.className = '';
+				sbox.style.display = 'block';
+				se1.style.display = 'block';
+				se2.style.display = '';
+				abtn[0].className = 'active';
+				abtn[1].className = '';
+			};
+			//点击open中的替换时;
+			lis[1].onclick = function(){
+				aul.className = '';
+				sbox.style.display = 'block';
+				se1.style.display = '';
+				se2.style.display = 'block';
+				abtn[0].className = '';
+				abtn[1].className = 'active';
+				
+			};
+			//点击abtn[0]查找的时候;
+			abtn[0].onclick = function(){
+				abtn[0].className = 'active';
+				abtn[1].className = '';
+				se1.style.display = 'block';
+				se2.style.display = '';
+			};
+			//点击abtn[1]查找的时候;
+			abtn[1].onclick = function(){
+				abtn[0].className = '';
+				abtn[1].className = 'active';
+				se1.style.display = '';
+				se2.style.display = 'block';
+			};
+			//点击查找的时候;
+			cz[1].onclick = function(){
+				//判断input里的内容不等于空的时候执行以下代码;
+				if(cz[0].value != '' ){
+					//把输入的内容用分隔符分割出来,再用连接符加入span标签包裹以分隔出来的内容从新赋予给text.innerHTML；
+					text.innerHTML = str.split(cz[0].value).join('<span>'+cz[0].value+'</span>');
+					//判断输入的内容是否存在,不存在就弹出;
+					if(str.indexOf(cz[0].value) == -1){
+						alert('你要查找的内容不存在')
+					}
+					//如果为空就弹出;
+				}else{
+					alert('填写内容不能为空')
+				}
+			};
+			//点击替代的时候;
+			change[2].onclick = function(){
+				//判断cheange[0]里的内容等不等于空,如果等于弹出,不等于继续执行下面的代码;
+				if(change[0].value == ''){
+					alert('请输入要进行查找或者替换的内容')
+				}else{
+					//判断change[0]的内容不等于空和change[1]的内容等不等于空时;
+					if(change[0].value != '' && change[1].value == ''){
+						//判断输入的内容是否存在,不存在就弹出;
+						if(str.indexOf(change[0].value) == -1){
+							alert('你要查找的内容不存在')
+							return
+						}
+						//判断确定要删除change[0]里输入的内容吗?如果是就被删除如果不是就return;
+						if(confirm('确定要删除'+change[0].value)){
+							text.innerHTML = str.split(change[0].value);
+						}else{
+							return
+						}
+					}
+					//把change[0]里的内容分割出来,在用连接符把change[1]里的内容从新赋予到text.innerHTML里;
+					text.innerHTML = str.split(change[0].value).join(change[1].value);
+					if(str.indexOf(change[0].value) == -1){
+						alert('你要替换或删除的内容不存在')
+							return
+					}
+					//从新给str赋予修改后的内容;这样再次查找的时候新添加的文字被查找时也有高亮效果;
+					str = text.innerHTML;
+				}
+			};
+		</script>
+	</body>
+</html>

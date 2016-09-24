@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 50px;
+				height: 50px;
+				background: greenyellow;
+				position: absolute;
+			}
+			.show{
+				background: url(img/6.jpg) no-repeat;
+			}
+		</style>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var str = '';
+			var num = -1;
+			var aDivs = document.getElementsByTagName('div');
+			//第一次循环为了写出100个div''
+			for (var i=0;i<100;i++) {
+				//判断i%10 == 0是条件成立触发num++;也就是top值的递增;
+				if(i%10 == 0){
+					num++;
+				}
+				//+ -i%10*60+'px;' + -num*60+'px;-i和-num是背景图的定位值，相当于雪碧图的做法;
+				str += '<div style="left:'+i%10*60+'px; top:'+num*60+'px; background-position-x:' + -i%10*60+'px; background-position-y:' + -num*60+'px;"></div>'
+			};
+			document.body.innerHTML = str;
+			//第二次循环为了做移入效果;
+			for (var i=0;i<aDivs.length;i++) {
+				//给每一个div写上移入事件;
+				aDivs[i].onmouseover= function(){
+					//给当前移入的目标加上class show；
+					this.className = 'show tr';
+				};
+			};
+		</script>
+	</body>
+</html>

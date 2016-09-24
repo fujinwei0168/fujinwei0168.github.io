@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+	#box{
+		width: 875px;
+		height: 553px;
+		background: url(img/bg.png) no-repeat;
+		margin: 0 auto;
+		position: relative;
+	}
+	img{
+		position: absolute;
+		top: 114px;
+		height: 245px;
+		cursor: pointer;
+	}
+	#box img:nth-of-type(1){
+		width:448px;
+		left: 49px;
+	}
+	#box img:nth-of-type(2){
+		width: 248px;
+		left:559px;
+	}
+	span{
+		position: absolute;
+		bottom: 143px;
+		font-weight: bold;
+	}
+	#box span:nth-of-type(1){
+		left: 49px;
+	}
+	#box span:nth-of-type(2){
+		right: 297px;
+	}
+	a{
+		position: absolute;
+		top:54px;
+		width: 60px;
+		height: 20px;
+	}
+	#box a:nth-of-type(1){
+		left:23px;
+	}
+	#box a:nth-of-type(2){
+		left: 100px;
+	}
+	p{
+		height: 20px;
+		width: 200px;
+		position: absolute;
+		bottom: 150px;
+		text-align: center;
+	}
+	#box p:nth-of-type(1){
+		left: 136px;
+	}	
+	#box p:nth-of-type(2){
+		width: 130px;
+		left: 634px;
+	}
+		</style>
+	</head>
+	<body>
+		<body>
+		<div id="box">
+		<a href="javascript:;"></a>
+		<a href="javascript:;"></a>
+		<img src="" alt="" />
+		<img src="" alt="" />
+		<span></span>
+		<span></span>
+		<p></p>
+		<p></p>
+	</body>
+	<script type="text/javascript">
+		var as = document.getElementsByTagName('a');
+		var pic = document.getElementsByTagName('img');
+		var spans = document.getElementsByTagName('span');
+		var ps = document.getElementsByTagName('p');
+		var arr1 = ['img/0.jpg','img/1.jpg','img/2.jpg','img/3.jpg','img/4.jpg'];
+		var arr2 = ['img/3.jpg','img/0.jpg','img/1.jpg'];
+		var arr3 = ['第一张','第二张','第三张','第四张','第五张'];
+		var arr4 = ['第一张','第二张','第三张'];
+		var num1 = 0;
+		var num2 = 0;
+		//图片左边初始化
+//		pic[0].src = arr1[num1];
+		//文字左边初始化
+//		ps[0].innerHTML = arr3[num1];
+		//数字左边的初始化
+//		spans[0].innerHTML = (num1+1)+'/'+[arr1.length];
+		//左边的自定义函数值
+		function left(){
+			if(num1 >= arr1.length){
+				num1 = 0;
+			};
+			if(num1 < 0){
+				num1 = arr1.length-1;
+			};
+			pic[0].src = arr1[num1];
+			ps[0].innerHTML = arr3[num1];
+			spans[0].innerHTML = (num1+1)+'/'+[arr1.length];
+		};
+		left();
+		//右边的自定义函数值
+		function right(){
+			if(num2 >= arr2.length){
+				num2 = 0;
+			};
+			if(num2 < 0){
+				num2 = arr2.length-1;
+			};
+			pic[1].src = arr2[num2];
+			ps[1].innerHTML = arr4[num2];
+			spans[1].innerHTML = (num2+1)+'/'+[arr2.length];
+		};
+		right();
+		//左边的图片点击
+		pic[0].onclick = function(){
+			num1++;
+			left();
+		};
+		//右边的图片点击
+		pic[1].onclick = function(){
+			num2++;
+			right();
+		};
+		//上一组
+		as[0],onclick = function(){
+			num1--;
+			num2--;
+			left();
+			right();
+		};
+		as[1],onclick = function(){
+			num1++;
+			num2++;
+			left();
+			right();
+		};
+
+	</script>
+</html>

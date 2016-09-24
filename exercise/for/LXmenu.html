@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+	ul,ol{
+		margin: 0;
+		padding: 0;
+	}
+	li{
+		list-style: none;
+	}
+	a{
+		text-decoration: none;
+		color:black;
+		width: 100%;
+		text-align: center;
+	}
+	h2{
+		margin: 0;
+		background:url(img/right.gif) no-repeat  10px center #63F7FF;	
+		padding-left: 20px; 
+		line-height: 30px;
+	}
+	ul{
+		border: 1px solid black;
+		width: 150px;
+	}
+	ol{
+		display: none;
+	}
+	ol li{
+		line-height: 20px;
+		border-top: 1px solid black;
+		text-align: center;
+		display: block;
+		cursor:pointer;
+	}
+	ol li:nth-child(1){
+		border: none;
+	}
+	ol li.active{
+		background-color: #63F7FF;
+	}
+	h2.active{
+		background:url(img/down.gif) no-repeat  8px center #F7F794;
+	}
+	h2.active+ol{
+		display: block;
+	}
+	.active{
+		display: block;
+	}
+	.red{
+		background: red;
+	}
+		</style>
+	</head>
+	<body>
+		<ul id="list">
+		<li>
+			<h2><a href="javascript:;">我的好友</a></h2>
+			<ol>
+				<li>张三</li>
+				<li>张三</li>
+				<li>张三</li>
+				<li>张三</li>
+			</ol>
+		</li>
+		<li>
+			<h2><a href="javascript:;">企业好友</a></h2>
+			<ol>
+				<li>李四</li>
+				<li>李四</li>
+				<li>李四</li>
+				<li>李四</li>
+				<li>李四</li>
+			</ol>
+		</li>
+		<li>
+			<h2><a href="javascript:;">黑名单</a></h2>
+			<ol>
+				<li>钟毅</li>
+				<li>钟毅</li>
+				<li>钟毅</li>
+			</ol>
+		</li>
+	</ul>
+	<script type="text/javascript">
+		var h2s = document.getElementsByTagName('h2');
+		var ols = document.getElementsByTagName('ol');
+//		var onOff = true;
+		//声明变量ul下的ol下的li,利用querySelectorALL获取到;
+		var alis = document.querySelectorAll('#list ol li')
+		//循环点击h2下拉菜单;
+		for (var i=0;i<h2s.length;i++) {
+			//声明一个自定义属性ols[i].index = i;
+			ols[i].index = i;
+			//声明一个自定义属性onOff为开关;
+			h2s[i].onOff = true;
+			//点击h2;
+			h2s[i].onclick = function(){
+				if(this.onOff){
+					for (var i=0;i<h2s.length;i++) {
+						h2s[i].className = '';
+						h2s[i].onOff = true;
+					};
+					this.className = 'active';
+					this.onOff = false;
+				}else{
+					this.className = '';
+					this.onOff = true;
+				}
+			};
+		};
+		//点击ul ol li;
+		for (var i=0;i<alis.length;i++) {
+			alis[i].onclick = function(){
+				if(this.className == ''){
+					for(var i=0;i<alis.length;i++){
+						this.className = '';
+					};
+					this.className = 'red';
+				}else{
+					this.className = '';
+				}
+			};
+		};
+	</script>
+	</body>
+</html>

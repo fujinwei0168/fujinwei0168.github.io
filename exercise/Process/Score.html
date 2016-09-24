@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		span{
+			font-size: 80px;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<span>★</span>
+	<span>★</span>
+	<span>★</span>
+	<span>★</span>
+	<span>★</span>
+
+	<script type="text/javascript">
+		var spans = document.getElementsByTagName('span');
+		var pos;
+		for (var i=0;i<spans.length;i++) {
+			(function(n){
+				spans[n].onmouseover = function(){
+					tab(n);
+				};
+				spans[n].onmouseout = function(){
+					tab(pos);
+				};
+				spans[n].onclick = function(){
+					pos = n;
+				};
+			})(i)
+		}
+		function tab(x){
+			for (var i=0;i<spans.length;i++) {
+				spans[i].style.color = '';
+			}
+			if(x<2){
+				for (var i=0;i<=x;i++) {
+					spans[i].style.color = 'red'
+				}
+			}else{
+				for (var i=0;i<=x;i++) {
+					spans[i].style.color = 'yellow'
+				}
+			}
+		}
+	</script>
+</body>
+</html>

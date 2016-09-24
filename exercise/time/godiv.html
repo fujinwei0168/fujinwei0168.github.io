@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 50px;
+				height: 50px;
+				background: fuchsia;
+				position: absolute;
+				top: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<!--<div></div>-->
+		<script type="text/javascript" src="mTween.js"></script>
+		<script type="text/javascript" src="tween.js"></script>
+		<script type="text/javascript">
+			var divs = document.getElementsByTagName('div');
+			var num;
+			var t = 0;
+			var n;
+			var len = 20;
+			var timer = null;
+			var onOff = false;
+			var color = ['tomato','blue','yellow','green','pink','blue','purple']
+			var str = '';
+			//生成div;
+			for (var i=0;i<len;i++) {
+				str += '<div style="left:'+i*60+'px; background-color:'+color[i%color.length]+';"></div>'
+			}
+			document.body.innerHTML = str;
+			//给document加点击事件;
+			document.onclick = function(){
+				//开关,代码运行时点击document不会立即刷新而是等代码读取完后在进行;
+				if(onOff){
+					return;
+				}
+				clearInterval(timer);
+				onOff = true;
+				//给num赋予值,-1就是从第一个div开始执行,给div向下用的;
+				num = 0;
+				n = 0;
+				/*判断(t也就是终点的值)
+				t 等不等于 0如果等于t=500从上至下,如果不等于t=0从下至上;
+				*/
+				if(t == 0){
+					t = 500;
+				}else{
+					t = 0;
+				}
+				//循环定时器;
+				timer = setInterval(function(){
+					//判断num大于div最后一个的时候，那么num就等于它;
+					if(num > len-1){
+						num = len-1;
+						//清楚定时器;
+						clearInterval(timer);
+					}
+					mTween(divs[num],'top',t,2000,'bounceIn',function(){
+						n++;
+						//如果条件成立代表代码执行完毕;
+						if(n == len){
+							onOff = false;
+						}
+					})
+					num++;
+				},100)
+			};
+		</script>
+	</body>
+</html>

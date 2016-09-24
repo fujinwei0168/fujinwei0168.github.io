@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box{
+					width:500px;
+					border:1px solid black;
+					margin: 50px auto 0;
+					position: relative;
+				}
+				img{
+					width:350px;
+					margin: 10px 75px 20px;
+					height: 290px;
+				}
+				ul{
+					margin: 0;
+					padding: 0;
+					position: absolute;
+					top:10px;
+				}
+				ul:nth-of-type(1){
+					left:5px;
+				}
+				ul:nth-of-type(2){
+					right:15px;
+				}
+				li{
+					list-style: none;
+					width:50px;
+					height: 30px;
+					margin: 5px 0;
+					border: 1px solid black;
+					line-height: 30px;
+					text-align: center;
+					cursor: pointer;
+				}
+				.active{
+					color:white;
+					background-color:black; 
+				}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<ul>
+				<li class="active">连衣裙</li>
+				<li>雪纺</li>
+				<li>T恤</li>
+				<li>铅笔裤</li>
+				<li>婚纱</li>
+				<li>T恤</li>
+				<li>铅笔裤</li>
+				<li>婚纱</li>
+			</ul>
+			<ul>
+				<li>包包</li>
+				<li>凉鞋</li>
+				<li>单鞋</li>
+				<li>太阳镜</li>
+				<li>丝袜</li>
+				<li>T恤</li>
+				<li>铅笔裤</li>
+				<li>婚纱</li>
+			</ul>
+			<img src="img/0.jpg" alt="">
+		</div>
+			<script type="text/javascript">
+				function getId(id){
+					return document.getElementById(id)
+				}
+				function getTagName(tagname){
+					return document.getElementsByTagName(tagname)
+				}
+				var abox = getId('box');
+				var lis = getTagName('li');
+				var imgs = getTagName('img')[0];
+				var arr = ['0.jpg','1.jpg','2.jpg','3.jpg','4.jpg']
+				var num = 0;
+				var timer = null;
+				//n是lis的一半;
+				var v = lis.length/2;
+				for (var i=0;i<lis.length;i++) {
+					(function(n){
+						lis[n].onmouseover = function(){
+							for (var i=0;i<lis.length;i++) {
+								lis[i].className = '';
+							}
+							this.className = 'active';
+							imgs.src = 'img/'+arr[n%arr.length];
+//							给num记录当前鼠标移入的位置;
+							num = n;
+						};
+					})(i)
+				}
+				//给循环定时器包在一个函数里面直接调用;
+				function autoplay(){
+						timer = setInterval(function(){
+							//lis的ClassName也跟着图片循环,但是记得要先清楚lis的ClassName和鼠标移入时的意思一样;
+							for (var i=0;i<lis.length;i++) {
+								lis[i].className = '';
+							}
+							//判断num小不小于lis的一半,小于的化num就++;
+							if(num < v){
+								num++;
+								//判断num等不等于lis的一半等于的化,num就等于所有li的最后一个;
+								if(num == v){
+									num = lis.length-1
+								}
+							}
+							//num--时;
+							else{
+								num--;
+								//判断num等不等于lis的一半减一(也就是左面li的最后一个),等于的化num就等于0也就是所有li的第一个;
+								if(num == v-1){
+									num = 0;
+								}
+							}
+							//图片的自动循环;
+							imgs.src = 'img/'+arr[num%arr.length];
+							//自动切换lis第num个的classname;
+							lis[num].className = 'active';
+						},500);
+					}
+					//调用函数;
+					autoplay();
+					//鼠标移入abox循环定时器停止;
+					abox.onmouseover = function(){
+						clearInterval(timer);
+					};
+					//鼠标移除abox循环定时器开启;
+					abox.onmouseout = function(){
+						autoplay();
+					};
+			</script>
+	</body>
+</html>

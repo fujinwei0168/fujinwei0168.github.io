@@ -1,0 +1,190 @@
+<!DOCTYPE html >
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+	#box{
+		width: 500px;
+		height: 500px;
+		margin: 0 auto;
+		position: relative;
+	}
+	#box img{
+		width: 100%;
+		height: 100%;
+	}
+	a{
+		text-decoration: none;
+		width: 50px;
+		height: 50px;
+		position: absolute;
+		top:50%;
+		margin-top: -25px;
+		background-color: #ccc;
+		border-radius: 50%;
+		line-height: 50px;
+		text-align: center;
+		color:white;
+		font-size: 40px;
+	}
+	#prev{
+		left:20px;
+	}
+	#next{
+		right:20px;
+	}
+	#list{
+		padding: 0;
+		margin: 0;
+		position: absolute;
+		bottom: 20px;
+		left:50%;
+		margin-left: -75px;
+		width: 150px;
+	}
+	#list li{
+		list-style: none;
+		background-color: yellow;
+		width: 20px;
+		height: 20px;
+		border-radius: 50%;
+		float: left;
+		margin: 0 5px;
+		cursor:pointer;
+		position: relative;
+	}
+	#list li.active{
+		background-color: #ccc;
+	}
+	#list li img{
+		display: none;
+		width: 100px;
+		height: 100px;
+		position: absolute;
+		bottom: 30px;
+		left: 50%;
+		margin-left: -50px;
+	}
+	#list li div{
+		border: 10px solid transparent;
+		border-top-color:#ccc;
+		position: absolute;
+		top:-10px; 
+		display: none;
+	}
+	#list li.active div,#list li.active img{
+		display: block;
+	}
+</style>
+</head>
+
+<body>
+
+	<div id="box">
+		<img src="img/0.jpg" alt="" id="img">
+		<a href="javascript:;" id="prev"><</a>
+		<a href="javascript:;" id="next">></a>
+		<ul id ="list">
+			<!--<li style="background:red;">
+				<img src="img/0.jpg" alt="">
+				<div></div>
+			</li>
+			<li><img src="img/1.jpg" alt=""></li>
+			<li><img src="img/2.jpg" alt=""></li>
+			<li><img src="img/3.jpg" alt=""></li>
+			<li><img src="img/4.jpg" alt=""></li>-->
+		</ul>		
+	</div>
+</body>
+</html>
+<script type="text/javascript">
+	/*
+		有哪些效果？
+			上一个、下一个{
+				也能图片切换，也能变色li
+			}
+			鼠标移入 
+				li的颜色变灰色
+				图片还要显示
+			移出li
+				li的颜色变黄色
+				图片还要隐藏
+				
+			点击li
+				变红色
+				对应当前的图片
+				
+	*/
+	var as = document.getElementsByTagName('a');//上一个或者下一个
+	var Img = document.getElementById('img');//切换的大图
+	var arr = ['img/0.jpg','img/1.jpg','img/2.jpg','img/3.jpg','img/4.jpg'];//存放一堆图片
+	var ul = document.getElementById('list');
+	var aLis = ul.getElementsByTagName('li');//真正的li
+	var lis = '';  //为了拼接li
+//	Img.src = arr[]
+
+	var num = 0;
+	//点击下一个；
+	as[1].onclick = function(){
+		num++;
+		if(num >= arr.length){
+			num = 0;
+		}
+		tab();
+	}
+	
+	function tab(){
+		for(var i=0;i<aLis.length;i++){
+			aLis[i].style.background = '';
+		}
+		aLis[num].style.background = 'red';
+		Img.src = arr[num];
+	}
+	
+	//点击上一个
+	as[0].onclick = function(){
+		num--;
+		if(num < 0){
+			num = arr.length-1;
+		}
+		tab();
+	}
+	
+	//生成li
+	for(var i=0;i<arr.length;i++){
+		if(i == 0){
+			lis += '<li style="background:red"></li>';
+		}else{
+			lis += '<li></li>';
+		}
+	}
+	ul.innerHTML = lis;
+	
+	function removeClass(){
+		for(var i=0;i<aLis.length;i++){
+			aLis[i].className = '';
+			aLis[i].innerHTML = '';
+		}
+	}
+	
+	//鼠标移入
+	for(var i=0;i<aLis.length;i++){
+		aLis[i].index = i;
+		aLis[i].onmouseover = function(){
+			removeClass();
+			this.innerHTML = '<img src="'+arr[this.index]+'" alt=""><div></div>';
+			this.className = 'active';
+		}
+		
+		aLis[i].onmouseout = function(){
+			removeClass();
+		}
+		
+		//点击li
+		aLis[i].onclick = function(){
+			num = this.index;
+			tab();
+		}
+	}
+</script>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body{
+			margin: 0;
+ 			line-height: 26px
+		}
+		 span{
+		 	color: #06f; 
+		 	text-decoration: underline;
+		 	cursor: pointer;
+		}
+		#box{
+			width: 300px; 
+			height: auto; 
+			border: 1px solid #6C0; 
+			padding: 10px; 
+			display: none; 
+			position: absolute; 
+			background: #FFF; 
+			font-size: 12px; 
+			overflow: hidden;
+		}
+        #div1{
+        	width: 550px; 
+        	margin: 100px auto 0; 
+        	border: 20px solid #888; 
+        	padding: 5px; 
+        	position: relative;
+        }
+        #div1 p{
+        	text-indent: 2em;
+        }
+        #box a{
+        	text-decoration: none; 
+        	color: #1176ED;
+        }
+        #box a:hover{
+        	color: red;
+        }
+	</style>
+</head>
+<body>
+	<div id="div1">
+	    <p>1975年7月31日，3号<span  c="台风（typhoon），和飓风都是产生于热带洋面上的一种强烈的气旋，只是发生地点不同，叫法不同，在北太平洋西部、国际日期变更线以西，包括南中国海范围内发生的强热带气旋（其中风速要超过３２．６米／秒）称为台风；而在大西洋或北太平洋东部的热带气旋则称飓风，也就是说在美国一带称飓风，在菲律宾、中国、日本一带叫台风。" l="http://www.hudong.com/wiki/%E5%8F%B0%E9%A3%8E">台风</span>在太平洋上空形成。8月7日，台风进入驻马店地区。</p>
+	    <p>在台风尚未到达时，<span c="区号： 0396 邮编：463000 位置：位于河南省南部 面积：1.5万平方公里 人口：795万 行政区划：辖驻马店市和汝南、确山、上蔡、西平、遂平、平舆、正阳、泌阳九县 概况" l="http://www.hudong.com/wiki/%E9%A9%BB%E9%A9%AC%E5%BA%97%E5%B8%82">驻马店</span>地区就已经普降暴雨。8月4日至8日，暴雨中心最大过程雨量达1631毫米，8月5日至7日3天的最大降雨量为1605毫米，相当于驻马店地区年平均雨量的1.8倍。4日至8日，超过400毫米的降雨面积达19410平方公里，大于1000毫米的降水区集中在<span c="京广铁路是指从北京到广东广州的铁路，全长2324千米。原分为北南两段。北段从北京到湖北汉口，称为"京汉铁路"，1906年4月建成。南段从广东广州到湖北武昌，称为"粤汉铁路"，于1936年4月建成。在1957年武汉长江大桥通车后，两条铁路接轨，并改名为京广铁路。" l="http://www.hudong.com/wiki/%E4%BA%AC%E5%B9%BF%E9%93%81%E8%B7%AF">京广铁路</span>以西板桥水库、石漫滩水库到方城一带。暴雨的降水强度，在暴雨中心——位于板桥水库的林庄，最大6小时<span c='从气象学上的角度来讲，所谓雨量，就是在一定时段内，降落到水平面上（无渗漏、蒸发、流失等）的雨水深度。用雨量计测定。以毫米为单位。气象台站在有降水的情况下，每隔6小时测量一次。' l='http://baike.baidu.com/link?url=2JJ3gg2srLtRwt_FEdCvmu7rLhz0bE5EaEncKM2UhBFteO84dsbkHDjIuchRZOKk'>雨量</span>为830毫米，超过了当时世界最高记录——美国宾州密士港的782毫米；最大24小时雨量为1060毫米，也创造了<span c='中国（China），位于东亚，是一个以华夏文明为主体、中华文化为基础，以汉族为主要民族的统一多民族国家，通用汉语。中国疆域内的各个民族统称为中华民族，龙是中华民族的象征。' l='http://baike.baidu.com/view/61891.htm'>中国</span>同类指标的最高记录。</p>
+	</div>
+
+	<div id="box"><!-- 中国（China），位于东亚，是一个以华夏文明为主体、中华文化为基础，以汉族为主要民族的统一多民族国家，通用汉语。中国疆域内的各个民族统称为中华民族，龙是中华民族的象征。<a href="http://baike.baidu.com/view/61891.htm">详情</a> --></div>
+
+	<!--华丽的分割线-->
+	<!-- <P>
+	<div></div>
+	</P> -->
+	<script>
+		var div1 = document.getElementById('div1');
+		var spans = document.getElementsByTagName('span');
+		var boxs = document.getElementById('box');
+		var timer = null;
+		for (var i = 0; i < spans.length; i++) {
+			spans[i].onmouseover = function(){
+				clearTimeout(timer);
+				//获取到当前点击span中的属性值c和l;
+				var c = this.getAttribute('c');
+				var l = this.getAttribute('l');
+				//声明变量最大可以定位的位置;
+				var maxLeft=0;
+            	var maxTop=0;
+            	var boxLeft;
+            	var boxsTop;
+            	//变量调用函数getPos(获取到当前移入元素到body的距离);
+            	var pos = getPos(this);
+            	var left = pos.x;
+            	var top = pos.y;
+            	//把内容返回到boxs中c+a标签里的内容;
+				boxs.innerHTML= c +'<a href="'+l+'">详情</a>';
+				//使boxs显示出来;
+				boxs.style.display='block';
+				//使boxs的left和span的left位置一致;
+				boxs.style.left = left+'px';
+				//使boxs的top和span的top位置一致且不重叠;
+				boxs.style.top = top+this.offsetHeight+'px';
+				/*获取left和top的最大定位;
+					left = div1的左边值加宽度减去div1的边框值,获得到div1右内侧的定位值;
+					top = div1的上方定位加高度减去div1的边框值,获得到div1的底部定位值;
+				*/
+				maxLeft = div1.getBoundingClientRect().right - div1.clientLeft;
+				maxTop = div1.getBoundingClientRect().bottom - div1.clientLeft;
+				//获取boxs的最右边的值和最下面的值用这个值做超出判断;
+				boxsLeft = boxs.getBoundingClientRect().right;
+				boxsTop = boxs.getBoundingClientRect().bottom;
+				 //判断是否超出，超出就拉回来;
+				if (boxsLeft > maxLeft){
+					boxs.style.left = maxLeft - boxs.getBoundingClientRect().width+'px';
+				}
+				if (boxsTop > maxTop){ 
+					boxs.style.top = top-boxs.offsetHeight+'px';
+				}
+			};
+			//定时器鼠标移除时清空boxs的display;
+			spans[i].onmouseout = function(){
+				timer = setTimeout(function(){
+					boxs.style.display='';
+				},80)
+			};
+		}
+		//鼠标移入boxs关闭定时器;
+		boxs.onmouseover = function(){
+			clearTimeout(timer);
+		};
+		//鼠标移除boxs的时候等待80毫秒在让boxs消失;
+		boxs.onmouseout = function(){
+			timer = setTimeout(function(){
+				boxs.style.display='';
+			},80)
+		};
+		//获取当前元素到最顶层的位置。
+		function getPos(node,pos){
+				pos = pos||{x:0,y:0};
+				pos.x +=node.offsetLeft;
+				pos.y +=node.offsetTop;
+				
+				if(node.offsetParent){
+					var p = node.offsetParent;
+					pos.x += css(p,'borderLeftWidth');
+					pos.y += css(p,'borderTopWidth');
+					getPos(node.offsetParent,pos);
+				}
+				return pos;
+			}
+			function css(obj,attr){
+				return parseFloat(getComputedStyle(obj)[attr]);
+			}
+	</script>
+</body>
+</html>

@@ -1,0 +1,790 @@
+body,h1{
+	margin: 0;
+}
+html{
+	height: 100%;
+	overflow: hidden;
+}
+body{
+	height: 100%;
+	overflow: auto;
+}
+a{
+	text-decoration: none;
+	/*清除点击链接和文本框对象时默认的灰色半透明覆盖层(iOS)或者虚框(Android)*/
+	-webkit-tap-highlight-color:rgba(0,0,0,0);
+}
+input{
+	-webkit-tap-highlight-color:transparent;
+	-webkit-appearance: none;
+	/*消除输入框和按钮的原生外观，在iOS上加上这个属性才能给按钮和输入框自定义样式*/ 
+}
+                                           /*头部*/
+header{
+	width: 100%;
+	height: 1.825rem;
+	background: #fe5400;
+	border-top: 0.025rem solid #b52600;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+header h1{
+	width: 1.35rem;
+	height: 1.025rem;
+	float: left;
+	overflow: hidden;
+	margin-left: 0.225rem;
+	margin-top: 0.4rem;
+	background: url(../img/tb.jpg) no-repeat;
+	background-size: 100%;
+}
+form{
+	width: 13.825rem;
+	height: 1.25rem;
+	margin-left: 0.275rem;
+	margin-top: 0.275rem;
+	position: relative;
+}
+form i{
+	width: 0.675rem;
+	height: 0.675rem;
+	position: absolute;
+	top: 0.3rem;
+	left: 4.125rem;
+	background: url(../img/sou.jpg) no-repeat;
+	background-size: 100%;
+}
+form input{
+	width: 13.825rem;
+	height: 1.25rem;
+	background: #b52500;
+	border: 0;
+	border-radius: 0.15rem;
+	text-align: center;
+	color: #f0e1dc;
+	font-size: 0.6rem;
+}
+                                           /*section内容区域*/
+section{
+	width: 100%;
+	padding-top: 1.85rem;
+}
+.banner-ms{
+	width: 100%;
+}
+.search{
+	width: 100%;
+	height: 6.9rem;
+	border-bottom: 0.025rem solid #ccc;
+}
+.search-top{
+	width: 100%;
+	height: 2.65rem;
+	padding-top: 0.5rem;
+}
+.search-content{
+    width: 2.325rem;
+    height: 2.65rem;
+    margin-left: 1.1rem;
+    margin-right: 0.425rem;
+}
+.search-content a{
+	width: 2.325rem;
+	height: 2.65rem;
+	display: block;
+	text-align: center;
+}
+.search-content a span{
+	font-size: 0.55rem;
+	color: #666;
+}
+.search-content a img{
+	width: 2.325rem;
+	height: 1.925rem;
+	padding-bottom: 0.15rem;
+	background-size: 100%;
+}
+.search-top1{
+	width: 100%;
+	height: 2.65rem;
+	padding-top: 0.6rem;
+}
+.search-bottom{
+	width: 100%;
+	height: 1.4rem;
+	padding-top: 0.15rem;
+}
+.s-b-l{
+	width: 3.457rem;
+	height: 1.2rem;
+	border-right: 0.025rem solid #ccc;
+}
+.s-b-l a{
+	display: block;
+	width: 3.457rem;
+	height: 1.2rem;
+	background: url(../img/toutiao.jpg) no-repeat;
+	background-size: 100%;
+}
+.t-j{
+	float: left;
+	display: block;
+	width: 1.6rem;
+	height: 0.75rem;
+	border: 0.025rem solid #e2515a;
+	border-radius: 0.15rem;
+	text-align: center;
+	font-size: 0.65rem;
+	color: #e2515a;
+	margin-top: 0.2rem;
+	margin-left: 0.45rem;
+}
+.search-bottom span{
+	font-size: 0.7rem;
+	color: #000;
+	margin-top: 0.2rem;
+	margin-left: 0.625rem;
+}
+.backgruond{
+	width: 100%;
+	height: 0.5rem;
+	background: #eee;
+}
+                                                 /*floor1*/
+.floor1{
+	width: 100%;
+	height: 7.765rem;
+}
+.floor1-left{
+	width: 6.4rem;
+	height: 7.45rem;
+	padding-top: 0.225rem;
+	border-right: 0.025rem solid #ccc;
+}
+.floor1-left h3{
+	width: 100%;
+	height: 0.7rem;
+	line-height: 0.7rem;
+	padding: 0.25rem 0;
+}
+.floor1-left h3 a{	
+	display: block;
+	margin-left: 0.35rem;
+	font-size: 0.7rem;
+	color: #fc515a;
+}
+.floor1-left h3 a img{
+	width: 0.7rem;
+	height: 0.7rem;
+	background-size: 100%;
+	padding-right: 0.15rem;
+}
+.floor1-left span{
+	font-size: 0.5rem;
+	padding-left: 0.375rem;
+}
+.jsq{
+	float: left;
+	display: block;
+	width: 3.35rem;
+	height: 0.85rem;
+	background: url(../img/jsq.jpg) no-repeat;
+	background-size: 100%;
+	margin-left: 0.625rem;
+	margin-top: 0.375rem;
+}
+.czj{
+	float: left;
+	display: block;
+	width: 6.4rem;
+	height: 4.325rem;
+	background: url(../img/floor1-1.jpg) no-repeat;
+	background-size: 100%;
+	margin-top: 0.25rem;
+}
+.floor1-right{
+	width: 9.575rem;
+	height: 7.675rem;
+}
+.f1-right-top{
+	width: 8.925rem;
+	height: 3.075rem;
+	padding-left: 0.65rem;
+	border-bottom: 0.025rem solid #ccc;
+}
+.y-h-h{
+	width: 3.825rem;
+	height: 1.5rem;
+	margin-top: 0.65rem;
+}
+.y-h-h a{
+	display: block;
+	width: 3.825rem;
+	height: 0.8rem;
+	line-height: 0.8rem;
+	font-size: 0.75rem;
+	color: #19b8de;
+}
+.y-h-h a img{
+	width: 0.8rem;
+	height: 0.8rem;
+	background-size: 100%;
+	padding-right: 0.125rem;
+}
+.y-h-h span{
+	font-size: 0.5rem;
+	color: #ccc;
+}
+.kfj{
+	width: 1.825rem;
+	height: 3.075rem;
+	margin-left: 1.8rem;
+}
+.kfj a img{
+	width: 1.825rem;
+	height: 3.075rem;
+	background-size: 100%;
+}
+.f1-right-bottom{
+	width: 9.575rem;
+	height: 4.575rem;
+}
+.agj{
+	width: 4.75rem;
+	height: 4.575rem;
+	border-right: 0.025rem solid #ccc;
+}
+.agj a img{
+	width: 4.75rem;
+	height: 4.575rem;
+	background-size: 100%;
+}
+.zg-zz{
+	width: 4.8rem;
+	height: 4.575rem;
+}
+.zg-zz a img{
+	width: 4.8rem;
+	height: 4.575rem;
+	background-size: 100%;
+}
+                                               /*floor2*/  
+.floor2{
+	width: 100%;
+	height: 11.625rem;
+	border-bottom: 0.05rem solid #e2e2e2;
+}
+.floor2-heard,.floor3-heard,.floor4-heard,.floor5-heard,.floor7-heard{
+	width: 15.5rem;
+	height: 1.525rem;
+	background: #eee;
+	padding: 0 0.25rem 0;
+}
+.heard-hx{
+	width: 6.1rem;
+	height: 0.025rem;
+	background: #ccc;
+	margin-top: 0.775rem;
+}
+.heard-csh{
+	width: 2.95rem;
+	height: 0.85rem;
+	background: url(../img/floor2/1.jpg) no-repeat;
+	background-size: 100%;
+	margin-top: 0.35rem;
+	margin-left: 0.25rem;
+}
+.f2-contion{
+	width: 100%;
+	height: 10.1rem;
+}
+.f2-contion-left{
+	width: 6.4rem;
+	height: 10.1rem;
+	border-right: 0.025rem solid #ccc;
+}
+.contion-left-top{
+	width: 6.4rem;
+	height: 5.025rem;
+	border-bottom: 0.025rem solid #ccc;
+}
+.contion-left-top a img{
+	width: 6.4rem;
+	height: 5.025rem;
+	background-size: 100%;
+}
+.f2-contion-right{
+	width: 9.575rem;
+	height: 10.075rem;
+	border-bottom: 0.05rem solid #ccc;
+}
+.right-list{
+	width: 9.575rem;
+	height: 5.05rem;
+	border-bottom: 0.025rem solid #ccc;
+}
+.right-list .list-first{
+	width: 3.175rem;
+	height: 5.05rem;
+	border-right: 0.025rem solid #ccc;
+}
+.list-first a img{
+	width: 3.175rem;
+	height: 5.05rem;
+	background-size: 100%;
+}
+.right-list .list-second{
+	width: 3.1rem;
+	height: 5.05rem;
+}
+.list-second a img{
+	width: 3.1rem;
+	height: 5.05rem;
+	background-size: 100%;
+}
+.right-list1{
+	width: 9.575rem;
+	height: 5.025rem;
+}
+.right-list1 .list-first1{
+	width: 3.175rem;
+	height: 5.025rem;
+	border-right: 0.025rem solid #ccc;
+}
+.right-list1 .list-second1{
+	width: 3.1rem;
+	height: 5.025rem;
+}
+.list-first1 a img{
+	width: 3.175rem;
+	height: 5.025rem;
+	background-size: 100%;
+}
+.list-second1 a img{
+	width: 3.1rem;
+	height: 5.025rem;
+}
+
+                                             /*floor3*/
+.floor3{
+	width: 100%;
+	height: 10.725rem;
+	border-bottom: 0.05rem solid #e2e2e2;
+}
+.floor3-heard .heard-csh{
+	width: 2.95rem;
+	height: 0.85rem;
+	background: url(../img/floor3/1.jpg) no-repeat;
+	background-size: 100%;
+	margin-top: 0.35rem;
+	margin-left: 0.25rem;
+}
+.f3-contion{
+	width: 100%;
+	height: 9.2rem;
+	background: #eee;
+}
+.f3-contion-top{
+	width: 100%;
+	height: 4.15rem;
+}
+.f3-top-left{
+	width: 9.575rem;
+	height: 4.15rem;
+}
+.f3-top-left a img{
+	width: 9.575rem;
+	height: 4.15rem;
+}
+.f3-top-right{
+	width: 6.4rem;
+	height: 4.15rem;
+	margin-left: 0.025rem;
+}
+.f3-top-right a img{
+	width: 6.4rem;
+	height: 4.15rem;
+}
+.f3-contion-bottom{
+	width: 100%;
+	height: 5.025rem;
+	margin-top: 0.025rem;
+}
+.f3-contion-bottom .s-h{
+	width: 3.175rem;
+	height: 5.025rem;
+	margin-right: 0.025rem;
+}
+.s-h a img{
+	width: 3.175rem;
+	height: 5.025rem;
+}
+.f3-contion-bottom .s-n{
+	width: 3.2rem;
+	height: 5.025rem;
+}
+.s-n a img{
+	width: 3.2rem;
+	height: 5.025rem;
+}
+                                            /*floor4*/
+.floor4{
+	width: 100%;
+	height: 11.6rem;
+}
+.floor4-heard .heard-csh{
+	width: 2.95rem;
+	height: 0.85rem;
+	background: url(../img/floor4/1.jpg) no-repeat;
+	background-size: 100%;
+	margin-top: 0.35rem;
+	margin-left: 0.25rem;
+}
+.f4-contion{
+	width: 100%;
+	height: 10.075rem;
+	background: #eee;
+}
+.f4-contion-left{
+	width: 6.4rem;
+	height: 10.075rem;
+	margin-right: 0.025rem;
+}
+.q-q-g{
+	width: 6.4rem;
+	height: 5rem;
+	margin-bottom: 0.025rem;
+}
+.q-q-g a img{
+	width: 6.4rem;
+	height: 5rem;
+}
+.zgzz{
+	width: 6.4rem;
+	height: 5.025rem;
+	margin-bottom: 0.025rem;
+}
+.zgzz a img{
+	width: 6.4rem;
+	height: 5.025rem;
+}
+.f4-contion-right{
+	width: 9.575rem;
+	height: 10.075rem;
+}
+.contion-right-first{
+	width: 3.175rem;
+	height: 5rem;
+	margin-right: 0.025rem;
+	margin-bottom: 0.025rem;
+}
+.contion-right-first a img,.contion-right-second a img{
+	width: 3.175rem;
+	height: 5rem;
+}
+.contion-right-second{
+	width: 3.175rem;
+	height: 5rem;
+	margin-bottom: 0.025rem;
+}
+.t-b-d{
+	width: 3.175rem;
+	height: 5.025rem;
+	margin-right: 0.025rem;
+	margin-bottom: 0.025rem;
+}
+.t-b-d a img,.mr-xp a img{
+	width: 100%;
+	height: 100%;
+}
+.mr-xp{
+	width: 3.175rem;
+	height: 5.025rem;
+	margin-bottom: 0.025rem;
+}
+                                        /*banner1*/
+.banner1{
+	width: 100%;
+	height: 3.2rem;
+	margin-top: 0.025rem;
+}
+.banner1 a img{
+	width: 100%;
+	height: 100%;
+}
+                                         /*floor5*/   
+.floor5{
+	width: 100%;
+	height: 16.975rem;
+}
+.floor5-heard .heard-csh{
+	width: 2.95rem;
+	height: 0.85rem;
+	background: url(../img/floor5/1.jpg) no-repeat;
+	background-size: 100%;
+	margin-top: 0.4rem;
+	margin-left: 0.25rem;
+}
+.floor5-heard .heard-hx1{
+	width: 4.5rem;
+	height: 0.025rem;
+	background: #ccc;
+	margin-top: 0.775rem;
+}
+.g-d{
+	width: 1.5rem;
+	height: 0.6rem;
+	margin-top: 0.5rem;
+}
+.g-d a{
+	font-size: 0.55rem;
+	color: #000;
+}
+.g-d a span{
+	color: #fd5615;
+}
+.f5-contion{
+	width: 100%;
+	height: 15.45rem;
+	background: #eee;
+}
+.f5-contion-left{
+	width: 7.975rem;
+	height: 15.45rem;
+	margin-right: 0.025rem;
+}
+.n-z{
+	width: 7.975rem;
+	height: 6.15rem;
+}
+.n-z a img{
+	width: 100%;
+	height: 100%;
+}
+.j-z{
+	width: 7.975rem;
+	height: 9.25rem;
+}
+.x-l{
+	width: 3.852rem;
+	height: 4.6rem;
+	margin-right: 0.025rem;
+	margin-bottom: 0.025rem;
+}
+.x-l a img{
+	width: 3.852rem;
+	height: 4.6rem;
+}
+.jz-cg{
+	width: 4.087rem;
+	height: 4.6rem;
+	margin-bottom: 0.025rem;
+}
+.jz-cg a img{
+	width: 4.087rem;
+	height: 4.6rem;
+}
+.f5-contion-right{
+	width: 7.975rem;
+	height: 15.45rem;
+}
+                                             /*banner2*/
+.banner2{
+	width: 100%;
+	height: 3.1rem;
+}
+.banner2 a img{
+	width: 100%;
+	height: 100%;
+}
+                                              /*floor6*/
+.floor6{
+	width: 100%;
+	height: 8.525rem;
+}
+.floor6-top{
+	width: 100%;
+	height: 1.55rem;
+	border-bottom: 0.025rem solid #ccc;
+}
+.floor6-top h3{
+	float: left;
+	height: 1.55rem;
+	line-height: 1.55rem;
+	padding-left: 0.35rem;
+	border-left: 0.25rem solid #ff9b43;
+	font-size: 0.7rem;
+}
+.floor6-top a{
+	float: right;
+	display: block;
+	width: 4.875rem;
+	height: 0.65rem;
+	line-height: 0.65rem;
+	margin-top: 0.45rem;
+	margin-right: 0.375rem;
+	font-size: 0.65rem;
+	color: #000;
+}
+.floor6-top a img{
+	float: right;
+	width: 0.65rem;
+	height: 0.65rem;
+}
+.floor6-contion{
+	width: 100%;
+	height: 6.95rem;
+}
+.f6-contion-box{
+	width: 15rem;
+	height: 5.925rem;
+	margin-top: 0.25rem;
+	margin-left: 0.3rem;
+}
+.c-b-l{
+	width: 7.6rem;
+	height: 5.925rem;
+}
+.c-b-l-t{
+	width: 7.6rem;
+	height: 5.1rem;
+}
+.c-b-l-t a img{
+	width: 100%;
+	height: 100%;
+}
+.c-b-l span{
+	font-size: 0.6rem;
+	margin-left: 0.075rem;
+}
+.c-b-r{
+	width: 7.1rem;
+	height: 5.925rem;
+}
+.c-b-r-t{
+	width: 6.4rem;
+	height: 5.1rem;
+	margin-left: 0.7rem;
+}
+.c-b-r-t a img{
+	width: 100%;
+	height: 100%;
+}
+.c-b-r span{
+	font-size: 0.6rem;
+}
+.f6-contion-bottom{
+	width: 100%;
+	height: 0.4rem;
+	margin-top: 0.2rem;
+}
+.f6-contion-bottom a img{
+	width: 2.65rem;
+	height: 0.4rem;
+}
+                                             /*floor7*/
+.floor7{
+	width: 100%;
+	height: 33.95rem;
+}
+.cn-xh{
+	width: 2.35rem;
+	height: 0.55rem;
+	margin-top: 0.375rem;
+}
+.heard-hx1{
+	width: 6.5rem;
+	height: 0.025rem;
+	background: #ccc;
+	margin-top: 0.775rem;
+}
+.floor7-heard span{
+	height: 0.55rem;
+	font-size: 0.55rem;
+}
+.floor7-contion{
+	width: 100%;
+	height: 32.425rem;
+	background: #eee;
+}
+.floor7-contion li{
+	float: left;
+	width: 7.9rem;
+	height: 10.675rem;
+	margin-right: 0.1rem;
+	margin-bottom: 0.2rem;
+}
+.pic{
+	width: 7.9rem;
+	height: 7rem;
+}
+.pic a img{
+	width: 100%;
+	height: 100%;
+}
+.contion-text{
+	width: 6.55rem;
+	height: 3.225rem;
+	background: #fff;
+	padding-left: 0.5rem;
+	padding-right: 0.85rem;
+	padding-top: 0.45rem;
+}
+.text-top{
+	width: 6.55rem;
+	height: 1.5rem;
+	line-height: 0.7rem;
+	margin-bottom: 0.425rem;
+}
+.text-top a{
+	font-size: 0.55rem;
+	color: #000;
+}
+.contion-text span{
+	font-size: 0.55rem;
+	font-family: arial;
+	color: #fe6b28;
+}
+                                          /*脚部*/
+footer{
+	width: 15rem;
+	height: 1.7rem;
+	padding-top: 0.4rem;
+	padding-left: 0.5rem;
+	padding-right: 0.5rem;
+	border-top: 0.025rem solid #ccc;
+	border-bottom: 0.025rem solid #ccc;
+	background: #fff;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+}
+.s-y{
+	width: 1.925rem;
+	height: 1.7rem;
+}
+.s-y a img,.w-l a img,.g-w-c a img,.wd-tb a img,.gd a img{
+	width: 100%;
+	height: 100%;
+}
+.w-l{
+	width: 1.925rem;
+	height: 1.7rem;
+	margin-left: 1rem;
+}
+.g-w-c{
+	width: 1.925rem;
+	height: 1.7rem;
+	margin-left: 1.25rem;
+}
+.wd-tb{
+	width: 1.925rem;
+	height: 1.7rem;
+	margin-left: 1.65rem;
+}
+.gd{
+	width: 1.925rem;
+	height: 1.7rem;
+	margin-left: 1.475rem;
+}

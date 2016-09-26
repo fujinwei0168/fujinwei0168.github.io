@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="mTween/mTween.js"></script>
+	<script type="text/javascript" src="mTween/tween.js"></script>
+	<style>
+		li{
+			height: 30px;
+			line-height: 30px;
+			position: relative;
+			top: 0px;
+		}
+	</style>
+</head>
+<body>
+	<ul id="box">
+		<li>
+			<span>1</span>
+			<input type="button" value="上移">
+			<input type="button" value="下移">
+		</li>
+		<li>
+			<span>2</span>
+			<input type="button" value="上移">
+			<input type="button" value="下移">
+		</li>
+		<li>
+			<span>3</span>
+			<input type="button" value="上移">
+			<input type="button" value="下移">
+		</li>
+		<li>
+			<span>4</span>
+			<input type="button" value="上移">
+			<input type="button" value="下移">
+		</li>
+		<li>
+			<span>5</span>
+			<input type="button" value="上移">
+			<input type="button" value="下移">
+		</li>
+	</ul>
+	<script>
+		var box = document.getElementById('box');
+		var lis = document.getElementsByTagName('li');
+		for (var i = 0; i < lis.length; i++) {
+			(function(){
+				//获取到li下面的第一个input节点;
+				var prev = lis[i].children[1];
+				var next = lis[i].children[2];
+				//给input[1]添加点击事件;
+				prev.onclick = function(){
+					//li的前一个兄弟节点;
+					var ptop = prev.parentNode.previousElementSibling;
+					//当前点击节点自身的父级li;
+					var ts = prev.parentNode;
+					//判断父级上面没有兄弟了就阻止代码运行;
+					if (!ptop){
+						alert('已经是第一个了');
+						return;
+					}
+					//利用insertBefore来移动上下级的位置;
+					box.insertBefore(ts,ptop);
+					//当前点击li前一个兄弟级li向上移动,并返回到原来的位置
+					mTween(ptop,'top',-20,100,'linear',function(){
+						mTween(ptop,'top',0,100,'linear')
+					})
+					//当前点击的li向下移动,并返回到原来的位置;
+					mTween(ts,'top',20,100,'linear',function(){
+						mTween(ts,'top',0,100,'linear')
+					})
+				};
+				next.onclick = function(){
+					//li的下一个兄弟节点;
+					var pbot = next.parentNode.nextElementSibling;
+					//当前点击节点自身的父级li;
+					var bs = next.parentNode;
+					if (!pbot){
+						alert('已经是最后一个了');
+						return;
+					}
+					box.insertBefore(pbot,bs);
+					//当前点击li下一个兄弟级li向下移动,并返回到原来的位置
+					mTween(pbot,'top',20,100,'linear',function(){
+						mTween(pbot,'top',0,100,'linear')
+					})
+					//当前点击的li向上移动,并返回到原来的位置;
+					mTween(bs,'top',-20,100,'linear',function(){
+						mTween(bs,'top',0,100,'linear')
+					})
+				};
+			})(i);
+		}
+	</script>
+</body>
+</html>

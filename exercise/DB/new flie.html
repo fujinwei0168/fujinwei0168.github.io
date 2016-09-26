@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#show{
+			width: 120px;
+			height: 30px;
+			line-height: 30px;
+			text-align: center;
+			border: 1px solid deepskyblue;
+			border-radius: 3px;
+			cursor: pointer;
+			color: #00BFFF; 
+		}
+		#show:hover{
+			background: gainsboro;
+		}
+		li{
+			width: 150px;
+			height: 150px;
+			position: relative;
+			float: left;
+			list-style: none;
+			margin-right: 10px;
+			margin-bottom: 50px;
+			background: url(img/10.png) no-repeat 35px 35px;
+		}
+		li span{
+			position: absolute;
+			bottom: 10px;
+			left: 35px;
+		}
+		.bag{
+			width: 146px;
+			height: 146px;
+			border: 2px solid gray;
+			background-color: cornflowerblue;
+		}
+		li input{
+			width: 20px;
+			height: 20px;
+		}
+		.dplay{
+			display: none;
+		}
+		.splay{
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	<div id="show">
+		<img src="img/1.jpg"/>
+		新建文件夹
+	</div>
+	<ul id="list">
+		<!--<li>
+			<input type="checkbox" class="btn">
+			<span>新建文件夹</span>
+		</li>-->
+	</ul>
+	<script>
+		var show = document.getElementById('show');
+		var list = document.getElementById('list');
+		//点击生成按钮;
+		show.onclick = function(){
+			//创建元素li;
+			var li = document.createElement('li');
+			//li中生成的内容,开始input为隐藏的;
+			li.innerHTML = '<input type="checkbox" class="dplay"><span>新建文件夹</span>';
+			//鼠标移入li时给li添加className,input显示出来;
+			li.onmouseenter = function(){
+				//从li下获取到input;
+				var inp = li.getElementsByTagName('input')[0];
+				//判断如果按钮被选中就阻止下面代码运行,如果没被选中继续执行下面代码;
+				if(inp.checked){
+					return;
+				}
+				li.className = 'bag';
+				li.innerHTML = '<input type="checkbox" class="splay"><span>新建文件夹</span>';
+			};
+			//鼠标移出li时给清空ll的className,input隐藏;
+			li.onmouseleave = function(){
+				var inp = li.getElementsByTagName('input')[0];
+				if(inp.checked){
+					return;
+				}
+				li.className = '';
+				li.innerHTML = '<input type="checkbox" class="dplay"><span>新建文件夹</span>';
+			};
+			//点击li时判断input按钮是否被选中,默认是flase选中是true;
+			li.onOff = true;
+			li.onclick = function(){
+				if (li.onOff) {
+					li.children[0].checked = true;
+				}else {
+					li.children[0].checked = false;
+				}
+				li.onOff = !li.onOff;
+			};
+			//把li添加到ul中;
+			list.appendChild(li);
+		};
+	</script>
+</body>
+</html>

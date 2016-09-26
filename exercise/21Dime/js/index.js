@@ -46,9 +46,9 @@ timer = setInterval(function(){
 					});
 				},1600);
 			}
-		},20)
+		},60)
 	}
-},20);
+},60);
 
 //控制鼠标移入移除sLogo时触发hover效果;
 $('.circle-hover').hover(function(){
@@ -227,7 +227,9 @@ function next(){
 		change(function(){
 			$('.music-name')[0].innerHTML = text[n];
 			$('.nav-count')[0].innerHTML = '0'+n1;
-			$('.Pimgs')[0].src = 'imgs/pic/'+ Parr[n];
+			var pimgs = $('.Pimgs')[0];
+			pimgs.src = 'imgs/pic/'+ Parr[n];
+			adress(pimgs,n);
 			$('.Imgs')[0].src = 'imgs/one-page/'+ Iarr[n];
 			//从新调用audioPlay()函数利用传参来进行音乐的前后切换;
 			audioPlay(n);
@@ -236,6 +238,21 @@ function next(){
 		});
 	});
 };
+
+//判断当前图片的路径，指定图片的宽度;
+function adress(obj,n){
+	switch(n){
+		case 1:
+			obj.style.width = '130%';
+		break;
+		case 4:
+			obj.style.width = '90%';
+		break;
+		default:
+			obj.style.width = '100%';
+		break;
+	}
+}
 
 //点击prev上一个按钮效果;
 function prev(){
@@ -258,7 +275,9 @@ function prev(){
 		change(function(){
 			$('.music-name')[0].innerHTML = text[n];
 			$('.nav-count')[0].innerHTML = '0'+n1;
-			$('.Pimgs')[0].src = 'imgs/pic/'+ Parr[n];
+			var pimgs = $('.Pimgs')[0];
+			pimgs.src = 'imgs/pic/'+ Parr[n];
+			adress(pimgs,n);
 			$('.Imgs')[0].src = 'imgs/one-page/'+ Iarr[n];
 			isPlay = false;
 			requestAnimationFrame(function(){

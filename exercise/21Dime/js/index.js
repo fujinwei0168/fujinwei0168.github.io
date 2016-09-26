@@ -5,7 +5,7 @@ var n = 0;
 var n1 = 1;
 var timer = null,timer2 = null;
 var text = [`AINTI' A WOMAN?`,'PIRANHA','THE COURT JESTER','NOMADE SlANG','HEY 30','DASH!','THEER LITTLE WORDS'];
-var Parr = ['sabrina.png','jungle.png','tigran.png','ibrahimmaalouf.png','CANdy.png','Airelle.png','cyrille.png'];
+var Parr = ['sabrina.png','Jungle.png','tigran.png','ibrahimmaalouf.png','CANdy.png','Airelle.png','cyrille.png'];
 var Iarr = ['SE.png','JT.png','TN.png','IF.png','CR.png','AN.png','CE.png'];
 var Marr = ['Woman.mp3','Piranha.mp3','The Court Jester.mp3','Nomade Slang.mp3','Hey Now.mp3','Boston.mp3','Three Little Words.mp3',]
 //点击开始停止音乐创建的开关;

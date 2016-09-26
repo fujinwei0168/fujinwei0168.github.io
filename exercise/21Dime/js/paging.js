@@ -34,6 +34,7 @@ scrollBox.onmousedown = function(ev){
 		document.onmouseup = function(){
 			this.onmousemove = null;
 		};
+		return false;
 	};
 //滚轮事件;
 document.onmousewheel = function(ev){

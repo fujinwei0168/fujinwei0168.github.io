@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		p{
+			width: 100px;
+			height: 100px;
+			background: red;
+			float: left;
+			margin: 0 20px;
+			padding: 0;
+		}
+		#div1{
+			width: 0;
+			height: 0;
+			border: 1px dotted black;
+			position: absolute;
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div id="div1"></div>
+	<p></p>
+	<p></p>
+	<p></p>
+	<p></p>
+	<script>
+		var div1 = document.getElementById('div1');
+		var ps = document.getElementsByTagName('p');
+		document.onmousedown = function(ev){
+			//按下记录鼠标位置;
+			var disx = ev.clientX;
+			var disy = ev.clientY;
+			div1.style.display = 'block';
+			document.onmousemove = function(ev){
+				div1 = document.getElementById('div1');
+				//移动中的鼠标位置减去按下时的鼠标位置就是div的宽度和高度;
+				var w = ev.clientX - disx;
+				var h = ev.clientY - disy;
+				//以鼠标点为目标鼠标往左时宽度小于零鼠标往右宽度大于零;
+				if (w < 0) {
+					div1.style.left = disx + w + 'px';
+				}else{
+					div1.style.left = disx + 'px';
+				}
+				if (h > 0) {
+					div1.style.top = disy + 'px';
+				}else{
+					div1.style.top = disy + h + 'px';
+				}
+				//宽度高度取绝对值;
+				div1.style.width = Math.abs(w) + 'px';
+				div1.style.height = Math.abs(h) + 'px';
+				//循环所有的p标签选矿选中的时候p标签就变色;
+				for (var i = 0; i < ps.length; i++) {
+					if(CollisionTest(div1,ps[i])){
+						ps[i].style.background = 'yellow';
+					}else{
+						ps[i].style.background = '';
+					}
+				}
+			};
+			document.onmouseup = function(){
+				//抬起回复默认值。
+				document.onmousemove = null;
+				div1.style.cssText = '';
+			};
+		};
+		//检测obj1是否碰撞obj2如果是就返回true，否则false; CollisionTest(检测碰撞)
+		function CollisionTest(obj1,obj2){
+			var pos1 = getPos(obj1);
+			var pos2 = getPos(obj2);
+			//排除掉所有不能碰撞的结果，剩下的就是碰撞;
+			if (pos1.bottom < pos2.top || pos1.left > pos2.right || pos1.top > pos2.bottom || pos1.right < pos2.left) {
+				return false;
+			}else{
+				return true;
+			}
+			// return !(pos1.bottom < pos2.top || pos1.left > pos2.right || pos1.top > pos2.bottom || pos1.right < pos2.left);
+		};
+		//获取对象的属性方法;
+		function getPos(obj){
+			return obj.getBoundingClientRect();
+		}
+	</script>
+</body>
+</html>

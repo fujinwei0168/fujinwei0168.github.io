@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="js/mTween.js"></script>
+	<script type="text/javascript" src="js/tween.js"></script>
+	<style>
+	ul{
+		margin: 0;
+		padding: 0;
+	}
+	li{
+		width: 500px;
+		height: 500px;
+		float: left;
+		list-style: none;
+	}
+	#box{
+		width: 500px;
+		height: 500px;
+		border: 2px solid #000;
+		margin: 0 auto;
+		overflow: hidden;
+		position: relative;
+	}
+	#list{
+		width: 2500px;
+		height: 500px;
+		position: absolute;
+		left: 0;
+		top: 0;
+	}
+	#list li img{
+		width: 100%;
+		height: 100%;
+	}
+	a{
+		text-decoration: none;
+		width: 50px;
+		height: 50px;
+		position: absolute;
+		top:50%;
+		margin-top: -25px;
+		background-color: #ccc;
+		border-radius: 50%;
+		line-height: 50px;
+		text-align: center;
+		color:white;
+		font-size: 40px;
+	}
+	a:hover{
+		opacity: 0.8;
+	}
+	#prev{
+		left:20px;
+	}
+	#next{
+		right:20px;
+	}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<ul id="list">
+			
+		</ul>
+		<a href="javascript:;" id="prev"><</a>
+		<a href="javascript:;" id="next">></a>
+	</div>
+	<script>
+		/*
+			思路:
+				1. 先实现布局,在布局中考虑到图片是滚动播放要在BOX下有一个空的壳利用ul使图片滚动起来;
+				2. 布局写好后生成ul里面的li和img把图片对应上;
+				3. 实现点击prev和next在这里最好在全局声明num变量为了方便使用,因为直接用
+					self.num会很乱到了后面容易蒙;
+				4. 实现自动播放调用定时器判断图片的位置如果走到最后一张就回到第一张和点击事件一样调用	mTween,在这里要注意直接声明var self = this.ele;会比较好;
+				5. 当鼠标移入到div,和两个a标签上时关闭定时器,防止在点击时定时器还在运行造成冲突;
+		 */
+		var box = document.getElementById('box');
+		var list = document.getElementById('list');
+		var str = '';
+		var num = 0;
+		var arr = ['帅哥.jpg','一琳.jpg','熊猫.jpg','艺术.jpg','鬼法.jpg'];
+		//生成ul里面的li和img;
+		for (var i = 0; i < arr.length; i++) {
+			str += '<li><img src="img/'+arr[i]+'"></li>';
+		}
+		list.innerHTML = str;
+		//创建构造函数获取内容;
+		var List = function(ele){
+			this.ele = ele.getElementsByTagName('ul')[0];
+			this.prev = ele.getElementsByTagName('a')[0];
+			this.next = ele.getElementsByTagName('a')[1];
+		};
+		//自动播放,调用定时器判断图片的位置如果走到最后一张就回到第一张和点击事件一样调用mTween;
+		//在这里直接让self等于ul;
+		List.prototype.autoPlay = function(){
+			var self = this.ele;
+			this.timer = setInterval(function(){
+				num++;
+				if (num > arr.length-1) {
+					num = 0;
+				}
+				mTween(self,'left',-num*500,500,'linear');
+			},1000);
+		};
+		//当鼠标移入到div,和两个a标签上时关闭定时器,防止在点击时定时器还在运行造成冲突;
+		List.prototype.stop = function(){
+			var self = this;
+			//鼠标移入关闭定时器;
+			this.ele.onmouseover = this.prev.onmouseover = this.next.onmouseover = function(){
+				clearInterval(self.timer);
+			};
+			//鼠标移出开启定时器;
+			this.ele.onmouseout = this.prev.onmouseout = this.next.onmouseout = function(){
+				box1.autoPlay();
+			};
+		};
+		//鼠标点击;
+		List.prototype.btn = function(){
+			var self = this;
+			//点击上一个,判断图片的位置如果到了第一张就回到最后一张,调用mTween移动的是ul(self.ele)使ul的位置发生改变从而做到图片滚动;
+			this.prev.onclick = function(){
+				num--;
+				if (num < 0) {
+					num = arr.length-1;
+				}
+				mTween(self.ele,'left',-num*500,500,'linear');
+			};
+			//点击下一个,判断图片的位置如果到了最后一张就回到第一张;
+			this.next.onclick = function(){
+				num++;
+				if (num > arr.length-1) {
+					num = 0;
+				}
+				mTween(self.ele,'left',-num*500,500,'linear');
+			};
+		};
+		var box1 = new List(box);
+		//调用
+		box1.btn();
+		box1.autoPlay();
+		box1.stop();
+	</script>
+</body>
+</html>

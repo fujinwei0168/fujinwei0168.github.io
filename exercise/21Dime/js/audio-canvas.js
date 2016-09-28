@@ -7,9 +7,6 @@ function audioPlay(n){
 	//创建音频;
 	var audio = new Audio('mp3/'+Marr[n]);
 	audio.addEventListener('canplay', function(){
-		if (source) {
-			return;
-		}
 		//添加要处理的媒体;
 		var source = context.createMediaElementSource(audio);
 		//创建获取频谱能量值的analyser节点;

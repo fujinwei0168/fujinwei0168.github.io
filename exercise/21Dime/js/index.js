@@ -162,6 +162,7 @@ $('.play-btn').click(function(){
 		}else{
 			$('.music-name')[0].style.color = '#5b5c5b';
 		};
+		//点击开关时关闭音乐;
 		audio.pause();
 		for(var i=0;i<divs.length;i++){
 			clearInterval(divs[i].timer1);
@@ -173,6 +174,7 @@ $('.play-btn').click(function(){
 		}else{
 			$('.music-name')[0].style.color = '#f5ea13';
 		};
+		//点击开关时开启音乐;
 		audio.play();
 		go(0,1000);
 		go(1,1500);
@@ -213,12 +215,10 @@ function next(){
 		RonOff = !RonOff;
 		//当点击是让上一个音乐暂停播放;
 		audio.pause();
-		console.log(window.audio);
-		window.audio = null;
-		console.log(window.audio);
-		if(onOff == false){
-			audio.pause();
-		};
+		//判断当前onOff的状态,无论开还是关当点击上一个下一个时都要关闭上一个音乐的播放状态;
+		// if(onOff == false){
+		// 	audio.pause();
+		// };
 		n++;
 		n1++;
 		if (n > text.length-1) {
@@ -267,10 +267,11 @@ function prev(){
 		//改变开关状态阻止多次点击时代码继续运行;
 		RonOff = !RonOff;
 		//当点击时让上一个音乐暂停播放;
-		console.log(window.audio);
 		audio.pause();
-		window.audio = null;
-		console.log(window.audio);
+		//判断当前onOff的状态,无论开还是关当点击上一个下一个时都要关闭上一个音乐的播放状态;
+		// if(onOff == false){
+		// 	audio.pause();
+		// };
 		n--;
 		n1--;
 		if (n < 0) {

@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<canvas width="700" height="400" style="background:#000;" id="canvas"></canvas>
+	
+	<script type="text/javascript">
+	
+	var canvas = document.getElementById('canvas');
+	//创建绘图环境
+	var gc = canvas.getContext('2d');
+	//填充颜色。
+	gc.fillStyle = 'yellow';
+	var num = 0;
+	var n = 5;
+	//图像创建的位置;
+	gc.translate(100,100);
+	//设置循环定时器每30毫秒创建一次画布;
+	setInterval(function(){
+		gc.clearRect(-100, -100, 700, 400);
+		if(num>100){
+			n = -5;
+		}
+		if(num == 0){
+			n = 5;
+		}
+		num+=n;
+		//开始绘制路径
+		gc.beginPath();
+		//画圆
+		gc.arc(0,0,num,0,Math.PI*2);
+		//填充当前绘图（路径）;
+		gc.fill();
+	},30);
+	</script>
+</body>
+</html>

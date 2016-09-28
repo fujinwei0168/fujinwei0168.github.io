@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+    <input type="button" value="好听" id="go">
+	<audio src="1.mp3" autoplay="" ="autoplay" id="music"></audio>
+	<script>
+		/*
+			音频标签下面的方法:
+			play()播放;
+			pause()停止播放;
+		*/
+		
+		var go = document.getElementById('go');
+		var play = document.getElementById('music');
+		var onOff = true;
+		go.onclick = function(){
+			if (onOff) {
+				music.pause();
+			}else{
+				music.play();
+			}
+			onOff = !onOff;
+		};
+	</script>
+</body>
+</html>

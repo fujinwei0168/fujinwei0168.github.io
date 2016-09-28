@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<canvas width="1336" height="613" style="background: #161716" id="canvas"></canvas>
+	<script type="text/javascript">
+		var canvas = document.getElementById('canvas');
+		var gc = canvas.getContext('2d');
+	
+		var audio = new Audio('Woman.mp3');
+		audio.addEventListener('canplay', function(){
+			//创造处理音频的对象;
+			var context = new AudioContext();
+			//添加要处理的媒体;
+			var source = context.createMediaElementSource(audio);
+			//创建获取频谱能量值的analyser节点;
+			var analyser = context.createAnalyser();
+			//链接频谱;
+			source.connect(analyser);
+			//链接系统扬声器节点;
+			source.connect(context.destination);
+			//调用播放;
+			audio.play();
+			audio.loop = 'loop';
+			var array = new Uint8Array(analyser.frequencyBinCount);
+			//获取到音频频率值。
+			// analyser.getByteFrequencyData(array);
+			(function(){
+				//获取到音频频率值。
+				analyser.getByteFrequencyData(array);
+				gc.clearRect(-canvas.width/2,-canvas.height/2, 1336, 613);
+				// for(var i=0;i<len;i++){
+					radius(20+array[400],25,'#0b0b0b');
+					radius(100+array[580],2,'yellow');
+					// array[580]>80?80:array[580];
+					// array[580]<40?40:array[580];
+					radius(200+array[100],15,'yellow');
+					radius(450+array[5],25,'#0b0b0b');
+				// }
+				requestAnimationFrame(arguments.callee);
+			})();
+		});
+		gc.translate(canvas.width/2,canvas.height/2);
+		radius(100,25,'#0b0b0b');
+		radius(200,2,'yellow');
+		radius(250,15,'yellow');
+		radius(600,25,'#0b0b0b');
+		function radius(r,w,c){
+			gc.beginPath();
+			gc.lineWidth = w;
+			gc.strokeStyle = c;
+			gc.arc(0,0,r,0,Math.PI*2);
+			gc.stroke();
+			gc.closePath();
+		};
+	</script>
+</body>
+</html>

@@ -211,7 +211,11 @@ function next(){
 		if(!RonOff)return;
 		//改变开关状态阻止多次点击时代码继续运行;
 		RonOff = !RonOff;
+		//当点击是让上一个音乐暂停播放;
 		audio.pause();
+		console.log(window.audio);
+		window.audio = null;
+		console.log(window.audio);
 		if(onOff == false){
 			audio.pause();
 		};
@@ -262,7 +266,11 @@ function prev(){
 		if(!RonOff)return;
 		//改变开关状态阻止多次点击时代码继续运行;
 		RonOff = !RonOff;
+		//当点击时让上一个音乐暂停播放;
+		console.log(window.audio);
 		audio.pause();
+		window.audio = null;
+		console.log(window.audio);
 		n--;
 		n1--;
 		if (n < 0) {

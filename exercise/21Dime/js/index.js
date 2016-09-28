@@ -46,9 +46,9 @@ timer = setInterval(function(){
 					});
 				},1600);
 			}
-		},60)
+		},30)
 	}
-},60);
+},30);
 
 //控制鼠标移入移除sLogo时触发hover效果;
 $('.circle-hover').hover(function(){
@@ -300,14 +300,14 @@ function change(callback){
 	800,
 	'linear',
 	function(){
+		callback();
 		$('.pic').animate({
 			right:0,
 			opacity:1
 		},
-		800
-		,'linear'
+		800,
+		'linear'
 		)
-		callback();
 	});
 
 	//左侧图片运动;

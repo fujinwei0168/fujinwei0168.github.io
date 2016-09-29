@@ -40,7 +40,7 @@ timer = setInterval(function(){
 						$('#one-page').show();
 						sabrina_starke();
 						se();
-						audioPlay(n);
+						// audioPlay(n);
 						next();
 						prev();
 					});
@@ -214,7 +214,7 @@ function next(){
 		//改变开关状态阻止多次点击时代码继续运行;
 		RonOff = !RonOff;
 		//当点击是让上一个音乐暂停播放;
-		audio.pause();
+		// audio.pause();
 		//判断当前onOff的状态,无论开还是关当点击上一个下一个时都要关闭上一个音乐的播放状态;
 		// if(onOff == false){
 		// 	audio.pause();
@@ -236,7 +236,7 @@ function next(){
 			adress(pimgs,n);
 			$('.Imgs')[0].src = 'imgs/one-page/'+ Iarr[n];
 			//从新调用audioPlay()函数利用传参来进行音乐的前后切换;
-			audioPlay(n);
+			// audioPlay(n);
 			//动画加载完成后改变开关状态可以进行下一次点击;
 			RonOff = !RonOff;
 		});
@@ -267,7 +267,7 @@ function prev(){
 		//改变开关状态阻止多次点击时代码继续运行;
 		RonOff = !RonOff;
 		//当点击时让上一个音乐暂停播放;
-		audio.pause();
+		// audio.pause();
 		//判断当前onOff的状态,无论开还是关当点击上一个下一个时都要关闭上一个音乐的播放状态;
 		// if(onOff == false){
 		// 	audio.pause();
@@ -291,7 +291,7 @@ function prev(){
 			isPlay = false;
 			requestAnimationFrame(function(){
 				isPlay = true;
-				audioPlay(n);
+				// audioPlay(n);
 				//动画加载完成后改变开关状态可以进行下一次点击;
 				RonOff = !RonOff;
 			});

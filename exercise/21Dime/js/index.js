@@ -229,16 +229,20 @@ function next(){
 		}
 		//把切换效果封装在函数中然后在change切换事件中回掉;
 		change(function(){
-			$('.music-name')[0].innerHTML = text[n];
-			$('.nav-count')[0].innerHTML = '0'+n1;
 			var pimgs = $('.Pimgs')[0];
 			pimgs.src = 'imgs/pic/'+ Parr[n];
-			adress(pimgs,n);
-			$('.Imgs')[0].src = 'imgs/one-page/'+ Iarr[n];
-			//从新调用audioPlay()函数利用传参来进行音乐的前后切换;
-			// audioPlay(n);
-			//动画加载完成后改变开关状态可以进行下一次点击;
-			RonOff = !RonOff;
+			pimgs.onload = function(){
+				$('.music-name')[0].innerHTML = text[n];
+				$('.nav-count')[0].innerHTML = '0'+n1;
+				
+				adress(pimgs,n);
+				$('.Imgs')[0].src = 'imgs/one-page/'+ Iarr[n];
+				//从新调用audioPlay()函数利用传参来进行音乐的前后切换;
+				// audioPlay(n);
+				//动画加载完成后改变开关状态可以进行下一次点击;
+				RonOff = !RonOff;
+			}
+			
 		});
 	});
 };

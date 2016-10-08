@@ -19,7 +19,7 @@ var timeAxisArr = [
 		    startTime:"2016.03",
 			endTime:"2016-至今",
 			companyLogo:'images/icon/banana.png',
-			companyNam:"秒味课堂",
+			companyNam:"妙味课堂",
 			companyWebsite:"http://www.miaov.com",
 			jobPost:"WEB前端工程师",
 			jonTask:"WEB前端工程师技能学习",

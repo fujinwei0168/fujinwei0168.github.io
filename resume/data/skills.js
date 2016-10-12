@@ -40,7 +40,7 @@ var skills = {
 		},
 		{
 			skillLanguage:"javascript",
-			percent:"70%",
+			percent:"60%",
 			skillTooltip:[
 				"了解数据类型、作用域闭包等语言特性",
 				"掌握定时器、数组字符串及递归、数组去重等",

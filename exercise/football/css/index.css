@@ -1,0 +1,352 @@
+body,h1{
+	margin: 0;
+}
+html{
+	height: 100%;
+	overflow: hidden;
+}
+body{
+	height: 100%;
+	overflow: auto;
+}
+a{
+	text-decoration: none;
+	/*清除点击链接和文本框对象时默认的灰色半透明覆盖层(iOS)或者虚框(Android)*/
+	-webkit-tap-highlight-color:rgba(0,0,0,0);
+}
+input{
+	-webkit-tap-highlight-color:transparent;
+	-webkit-appearance: none;
+	/*消除输入框和按钮的原生外观，在iOS上加上这个属性才能给按钮和输入框自定义样式*/ 
+}
+                                           /*头部*/
+header{
+	width: 100%;
+	height: 2.370rem;
+	background: #2b2a2c;
+	border-top: 0.0185rem solid #47484a;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+header h1{
+	width: 1.67rem;
+	height: 1.67rem;
+	float: left;
+	margin-top: 0.167rem;
+	margin-left: 0.704rem;
+	overflow: hidden;
+	border: 0.148rem solid #d9d2ca;
+	border-radius: 50%;
+	background: url(../img/4.png) no-repeat;
+	background-size: 100%;
+}
+.number{
+	height: 0.926rem;
+	float: left;
+	margin-left: 0.926rem;
+	margin-top: 0.648rem;
+}
+.zuan{
+	width: 0.667rem;
+	height: 0.667rem;
+	margin-top: 0.278rem;
+	float: left;
+	background: url(../img/zuan.png) no-repeat;
+	background-size: 100%;
+}
+.n,.n1{
+	margin-left: 0.648rem;
+	float: left;
+}
+.n a{
+	width: 0.278rem;
+	height: 0.278rem;
+	display: block;
+	background: url(../img/jia.png) no-repeat;
+	background-size: 100%;
+}
+.n span,.n1 span{
+	display: block;
+	margin-top: 0.111rem;
+	font-size: 0.481rem;
+	color: #fff;
+}
+.number1{
+	height: 0.926rem;
+	float: left;
+	margin-left: 1.63rem;
+	margin-top: 0.648rem;
+}
+.xing{
+	width: 0.667rem;
+	height: 0.667rem;
+	margin-top: 0.278rem;
+	float: left;
+	background: url(../img/xing.png) no-repeat;
+	background-size: 100%;
+}
+.n1 a{
+	width: 0.278rem;
+	height: 0.278rem;
+	display: block;
+	background: url(../img/jia.png) no-repeat;
+	background-size: 100%;
+}
+.room{
+	width: 4.111rem;
+	height: 1.734rem;
+	border: 0.074rem solid #ccc;
+	border-radius: 0.092rem;
+	line-height: 1.734rem;
+	font-size: 0.852rem;
+	margin-top: 0.204rem;
+	margin-left: 3.5rem;
+	color: #fff;
+	display: block;
+	float: left;
+	text-align: center;
+}
+                                           /*all内容区域*/
+.all{
+	width: 100%;
+	height: 2.333rem;
+	margin-top: 2.703rem;
+}
+.sy{
+	width: 4.722rem;
+	height: 100%;
+	float: left;
+	font-weight: 800;
+	background: #383738;
+	border: 0.019rem solid #909886;
+	border-radius: 0.093rem;
+}
+.sy a{
+	width: 100%;
+	height: 1.833rem;
+	padding-top: 0.5rem;
+	display: block;
+}
+.sy div{
+	width: 100%;
+	height: 1.6rem;
+}
+.pic{
+	width: 1.296rem;
+	height: 1.6rem;
+	float: left;
+	background: url(../img/an.png) no-repeat;
+	background-size: 100%;
+	margin-left: 0.185rem;
+}
+.sy-text{
+	float: left;
+	color: #fff;
+	height: 100%;
+	line-height: 1.481rem;
+	font-size: 0.704rem;
+	margin-left: 0.093rem;
+}
+.sy .bag{
+	width: 100%;
+	height: 0.2rem;
+	margin-top: 0.04rem;
+	background: #8bb854;
+	border-radius: 0 0 0.093rem;
+}
+.all-text{
+	width: 4.722rem;
+	height: 100%;
+	text-align: center;
+	margin-left: 0.28rem;
+	float: left;
+	background: #2b2a2c;
+	border: 0.019rem solid #909886;
+	border-radius: 0.093rem;
+	font-weight: 800;
+}
+.all-text a{
+	width: 100%;
+	height: 100%;
+	line-height: 2.333rem;
+	color: #fff;
+	font-size: 0.704rem;
+}
+                                           /*section内容区域*/
+section{
+	width: 100%;
+	padding-top: 0.65rem;
+	padding-left: 0.8rem;
+	padding-right: 0.8rem;
+}
+.px-box{
+	width: 100%;
+	height: 1.63rem;
+	margin-bottom: 0.370rem;
+}
+.sx,.px{
+	width: 9rem;
+	height: 1.556rem;
+	line-height: 1.556rem;
+	font-size: 0.63rem;
+	font-weight: 800;
+	color: #606062;
+	text-align: center;
+	display: block;
+	float: left;
+	border: 0.09rem solid #c7c7c7;
+}
+.px{
+	margin-left: 0.35rem;
+}
+.list-room{
+	width: 100%;
+}
+.list-room li{
+	width: 18.5rem;
+	height: 4.2rem;
+	border: 0.09rem solid #c7c7c7;
+	border-radius: 0.018rem;
+	margin-bottom: 0.65rem;
+}
+.md{
+	width: 5.741rem;
+	height: 100%;
+	float: left;
+	margin-left: 0.926rem;
+}
+.md h2{
+	font-size: 0.667rem;
+	color: #4e4d4e;
+	margin-top: 0.3rem;
+	margin-bottom: 0.4rem;
+}
+.md .rc-rs{
+	font-size: 0.481rem;
+	color: #a3a1a3;
+}
+.md .rc-nb{
+	font-size: 0.481rem;
+	color: #454446;
+	font-weight: 600;
+	margin-left: 0.5rem;
+}
+.md .rc-tm{
+	font-size: 0.370rem;
+	color: #454446;
+	margin-left: 1rem;
+}
+.md div:nth-of-type(2){
+	margin-top: 0.3rem;
+}
+.zc,.gf{
+	width: 1.704rem;
+	height: 0.63rem;
+	line-height: 0.63rem;
+	font-size: 0.407rem;
+	color: #000;
+	text-align: center;
+	background: #ededed;
+	border-radius: 0.074rem;
+	margin-top: 0.4rem;
+}
+.rc-m{
+	float: left;
+	text-align: center;
+	margin-left: 2.222rem;
+}
+.rcf{
+	margin-top: 1.5rem;
+	font-size: 0.481rem;
+	color: #a3a1a3;
+}
+.rc-nb{
+	font-size: 0.667rem;
+	margin-top: 0.3rem;
+	color: #454446;
+	font-weight: bold;
+}
+.jc{
+	width: 2.593rem;
+	height: 100%;
+	float: left;
+	text-align: center;
+	margin-left: 4.074rem;
+}
+.jm{
+	font-size: 0.815rem;
+	margin-top: 0.2rem;
+	color: #56a900;
+	font-weight: bold;
+}
+.gf{
+	margin: 0 auto;
+	background: #ffd20d;
+	margin-top: 0.15rem;
+}
+
+                                          /*脚部*/
+footer{
+	width: 100%;
+	height: 2rem;
+	padding: 0.296rem 0;
+	background: #2b2a2c;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+}
+.nav{
+	width: 100%;
+	height: 100%;
+	margin-left: 1.333rem;
+}
+.nav li{
+	float: left;
+	text-align: center;
+}
+.nav li a{
+	display: block;
+}
+.nav-logo{
+	width: 1.296rem;
+	height: 1.296rem;
+	background: url(../img/dating.png) no-repeat;
+	background-size: 100%;
+	margin-bottom: 0.092rem;
+}
+.logo-text{
+	font-size: 0.556rem;
+	color: #babac3;
+}
+.nav li:nth-of-type(1) .logo-text{
+	color: #8bb854;
+}
+.nav li:nth-of-type(2){
+	margin-left: 2.7rem;
+}
+.nav li:nth-of-type(2) .nav-logo{
+	background: url(../img/z.png) no-repeat;
+	background-size: 100%;
+}
+.nav li:nth-of-type(3){
+	margin-left: 2.7rem;
+}
+.nav li:nth-of-type(3) .nav-logo{
+	background: url(../img/y.png) no-repeat;
+	background-size: 100%;
+}
+.nav li:nth-of-type(4){
+	margin-left: 2.7rem;
+}
+.nav li:nth-of-type(4) .nav-logo{
+	background: url(../img/q.png) no-repeat;
+	background-size: 100%;
+}
+.nav li:nth-of-type(5){
+	margin-left: 2.7rem;
+}
+.nav li:nth-of-type(5) .nav-logo{
+	background: url(../img/w.png) no-repeat;
+	background-size: 100%;
+}

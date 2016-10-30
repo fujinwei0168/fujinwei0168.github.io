@@ -159,7 +159,7 @@ header h1{
 	width: 4.722rem;
 	height: 100%;
 	text-align: center;
-	margin-left: 0.28rem;
+	margin-left: 0.32rem;
 	float: left;
 	background: #2b2a2c;
 	border: 0.019rem solid #909886;
@@ -177,8 +177,7 @@ header h1{
 section{
 	width: 100%;
 	padding-top: 0.65rem;
-	padding-left: 0.8rem;
-	padding-right: 0.8rem;
+	padding-left: 0.7rem;
 }
 .px-box{
 	width: 100%;

@@ -30,7 +30,7 @@ var userInfo = {
     userOrignPlace:  "北京市房山区" ,
     userSeatPlace:  "北京市",
     userWeibo: "https://github.com/fujinwei0168",
-    userAssessment: "熟练掌握JS技巧与实现，较强的沟通能力和学习能力，有良好的团队协作精神，为人和善。",   
+    userAssessment: "熟练掌握JS技巧与实现，热爱前端开发，喜欢压力与挑战，乐观自信，沟通能力强，具有较好的团队合作能力，乐于与团队进行合作开发。对待工作认真负责。具有较强的学习能力，能够较快的学习应用新知识；勤奋努力，乐于做自己喜欢 的工作，喜欢研发。",   
     userHobby: ["运动","游戏","电影"],
     // userAward: ["最佳前端架构奖"]
 }

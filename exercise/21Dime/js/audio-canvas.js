@@ -3,10 +3,14 @@ var gc = canvas.getContext('2d');
 //创造处理音频的对象;
 var context = new AudioContext();
 
-function audioPlay(n){
+function audioPlay(v){
 	//创建音频;
-	var audio = new Audio('mp3/'+Marr[n]);
+	var audio = new Audio('mp3/'+Marr[v]);
 	audio.addEventListener('canplay', function(){
+		if (v != n) {			
+			return;
+		}
+		window.audio = audio;
 		//添加要处理的媒体;
 		var source = context.createMediaElementSource(audio);
 		//创建获取频谱能量值的analyser节点;
@@ -44,5 +48,4 @@ function audioPlay(n){
 		gc.stroke();
 		gc.closePath();
 	};
-	return window.audio = audio;
 }

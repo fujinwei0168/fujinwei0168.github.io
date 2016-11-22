@@ -1,5 +1,6 @@
 var left = document.getElementById('leftborder')
 var right = document.getElementById('rightborder')
+var canvas = document.getElementById('canvas');
 var num1 = 0,num2=0;
 var n = 0;
 var n1 = 1;
@@ -473,3 +474,11 @@ function mScroll(obj,upper,down){
 		}
 	}
 }
+
+//响应式,屏幕发生变化时触发的事件;
+window.addEventListener("resize",function(){
+	//获取当前屏幕的宽度;
+	var maxWidth = window.innerWidth;
+	//canvas的宽度始终等于屏幕的宽度,这样绘制出来的圆一直在屏幕中心;
+	canvas.width = maxWidth;
+})

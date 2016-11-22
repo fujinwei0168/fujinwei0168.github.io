@@ -300,6 +300,9 @@ img{
 	opacity: 0;
 	z-index: 1;
 }
+.Imgs{
+	width: 100%;
+}
 
 /*
 	轮播导航滚动条
@@ -450,7 +453,8 @@ footer{
 	transition: all 0.5s;
 }
 .artist-nav{
-	width: 60%;
+	max-width: 86%;
+	width: 65%;
 	height: 95%;
 	margin: 0 auto;
 	position: relative;
@@ -576,4 +580,64 @@ footer{
 	left: 15%;
 	transform: rotateX(0deg);
 	opacity: 1;
+}
+
+
+
+
+                                  /*响应式
+                    /* @media only screen and (min-width:1330px) */
+@media only screen and (max-width: 1680px) {
+	.artist-nav{
+		width: 845px;
+		top: 0;
+	}
+	.artist-nav li:nth-of-type(7){
+		margin-left: 20%;
+	}
+}
+
+ 					/* @media only screen and (min-width:1280px) */
+@media only screen and (max-width: 1280px) {
+	.artist-nav{
+		width: 600px;
+		top: 10%;
+	}
+}
+
+
+                    /* @media only screen and (min-width:1024px) */
+@media only screen and (max-width: 1024px) {
+	.herder{
+		padding-top: 10px;
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+	.se{
+		top: 20%;
+	}
+	.svg-brand-logo{
+		width: 86px;
+	}
+}
+
+
+
+                    /* @media only screen and (min-width:992px) */
+@media only screen and (max-width: 992px) {
+	.pic{
+		width: 55%;
+	}	
+}
+
+
+
+                    /* @media only screen and (min-width:768px) */
+@media only screen and (max-width: 768px) {
+	.pic{
+		width: 65%;
+	}
+	.se{
+		width: 300px;
+	}
 }

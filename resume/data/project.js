@@ -14,6 +14,15 @@
 
 var projects = [
 		{
+			projectName:"Demo",
+			projectWebsite:"https://fujinwei0168.github.io/exercise/SF/index",
+		    startTime:"2016.12.09",
+			endTime:"2016.12.09",
+			projectExplain:"利用css3中的preserve-3d及box-reflect属性制作出带有倒影的轮播图。",
+			projectLabel:["html","css3","css","js"],
+			projectThumbnail:"images/icon/lb.png"
+		},
+		{
 			projectName:"整屏切换+动画制作“jQuery库”",
 			projectWebsite:"https://fujinwei0168.github.io/exercise/21Dime/index",
 		    startTime:"2016.09.05",

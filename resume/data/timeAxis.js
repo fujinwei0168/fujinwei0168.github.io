@@ -17,7 +17,7 @@
 var timeAxisArr = [
 		{
 		    startTime:"2016.03",
-			endTime:"2016-至今",
+			endTime:"2016.12",
 			companyLogo:'images/icon/banana.png',
 			companyNam:"妙味课堂",
 			companyWebsite:"http://www.miaov.com",
@@ -26,7 +26,7 @@ var timeAxisArr = [
 			jobContent:"掌握JavaScript/HTML5/CSS3等相关前端开发技术，能熟练使用常见类库或框架（如 jQuery）；编写高质量的前端代码；了解浏览器兼容问题的原因，能够解决兼容性问题；掌握ajax，ECMAScript6，Git及Github，Node.js及recat，能独开发常用组件。",
 		},
 		{
-		    startTime:"2014.04",
+		    startTime:"2013.04",
 			endTime:"2015.11",
 			companyLogo:'images/icon/banana.png',
 			companyNam:"Jwda骏地设计（北京）",
@@ -34,17 +34,7 @@ var timeAxisArr = [
 			jobPost:"效果图设计师",
 			jonTask:"效果图负责人。协助设计师进行效果图绘制",
 			jobContent:"主要负责效果图前后期工作，协助设计部进行项目开发，独立完成方案汇报文本所需的图纸。",
-		},
-		{
-		    startTime:"2013.02",
-			endTime:"2014.02",
-			companyLogo:'images/icon/banana.png',
-			companyNam:"北京印象饰界装饰工程设计有限公司",
-			companyWebsite:"http://www.miaov.com",
-			jobPost:"效果图设计师",
-			jonTask:"效果图负责人。协助设计师进行效果图绘制",
-			jobContent:"主要负责效果图前后期工作，从前期建模，灯光，材质，到后期渲染，PS出图独立完成。",
-		},
+		}
 		// {
 		//     startTime:"2016.01.01",
 		// 	endTime:"2016.01.05",
